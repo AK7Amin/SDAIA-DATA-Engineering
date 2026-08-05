@@ -1,0 +1,8 @@
+﻿Question: Tell me about lantern products in the catalog
+
+Answer:
+[HANGING MEDINA LANTERN SMALL] HANGING MEDINA LANTERN SMALL (product code 21324) is a product sold through the online retail catalog. It generated total revenue of 23.60 over the observed period. [Source 1] [HANGING METAL STAR LANTERN] It ranks 224 out of 1581 products by total revenue. [Source 2] [WHITE METAL LANTERN] A total of 127 units of this product were sold. It appeared across 19 separate invoices. [Source 3]
+
+Sources:
+  [Source 1] chunk_id=21324_chunk_000 doc_id=21324 text="[HANGING MEDINA LANTERN SMALL] HANGING MEDINA LANTERN SMALL (product code 21324) is a product sold through the online retail catalog. It generated total revenue of 23.60 over the observed period."
+  [Source 2] chunk_id=22465_chunk_005 doc_id=22465 text="[HANGING METAL STAR LANTERN] It ranks 224 out of 1581 products by total revenue."
