@@ -127,9 +127,10 @@ UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
 
 ## 👥 Team
 
-- Abdulaziz Mulia
-- <!-- TEAMMATE 2 -->
-- <!-- TEAMMATE 3 -->
+- Abdulaziz Mulia — عبدالعزيز مليا
+- Saif Abukhamis — سيف بن دايف أبوخميس
+- Feras Al-Harbi — فراس بن محمد الحربي
+- Faisal Al-Abdul-Jabbar — فيصل بن عبدالله العبدالجبار
 
 ## 🎓 Training program attribution
 
