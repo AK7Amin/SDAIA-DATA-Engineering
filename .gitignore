@@ -16,3 +16,6 @@ standalone_admin_password.txt
 
 # evidence of real runs is DELIBERATELY tracked — it is the rubric's proof
 !evidence/**
+# ...except Airflow's internal chatter (scheduler heartbeats, parser logs)
+evidence/airflow_logs/scheduler/
+evidence/airflow_logs/dag_processor_manager/
