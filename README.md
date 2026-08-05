@@ -131,8 +131,8 @@ UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
 
 ## 👥 Team
 
-- Abdulaziz Mulia — عبدالعزيز مليا
-- Saif Abukhamis — سيف بن دايف أبوخميس
+- Abdulaziz Mulia — عبدالعزيز بن خالد مليا
+- Saif Abukhamis — سيف بن نايف أبوخميس
 - Feras Al-Harbi — فراس بن محمد الحربي
 - Faisal Al-Abdul-Jabbar — فيصل بن عبدالله العبدالجبار
 
