@@ -65,11 +65,16 @@ def build_chroma_collection(chunks):
 
     ef = SentenceTransformerEmbeddingFunction(model_name="all-MiniLM-L6-v2")
     collection = client.create_collection(COLLECTION_NAME, embedding_function=ef)
-    collection.add(
-        ids=[c["id"] for c in chunks],
-        documents=[c["text"] for c in chunks],
-        metadatas=[{"doc_id": c["doc_id"]} for c in chunks],
-    )
+    # ChromaDB caps a single add() at ~5461 items — feed it in batches
+    BATCH = 5000
+    for start in range(0, len(chunks), BATCH):
+        batch = chunks[start:start + BATCH]
+        collection.add(
+            ids=[c["id"] for c in batch],
+            documents=[c["text"] for c in batch],
+            metadatas=[{"doc_id": c["doc_id"]} for c in batch],
+        )
+        print(f"[INDEX] embedded+stored chunks {start}..{start + len(batch) - 1}")
     return collection
 
 
