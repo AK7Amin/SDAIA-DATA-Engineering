@@ -31,6 +31,9 @@ with DAG(
     start_date=datetime(2026, 8, 1),
     schedule=None,
     catchup=False,
+    # two concurrent runs would share the Kafka consumer group and the
+    # landing directory and cross-contaminate each other's increments
+    max_active_runs=1,
     params={"batch": "A", "inject_malformed": 3, "inject_corruption": False},
     tags=["capstone"],
 ) as dag:
