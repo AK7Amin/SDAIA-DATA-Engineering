@@ -1,0 +1,17 @@
+﻿python.exe : C:\Users\abdul\sdaia-capstone\src\consumer.py:25: DeprecationWarning: value_deserializer does not 
+implement kafka.serializer.Deserializer
+At line:1 char:562
++ ... ence\ingestion\01_producer_batchA.log; & $py consumer.py 2>&1 | Tee-O ...
++                                            ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\abdul\...er.Deserializer:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  consumer = KafkaConsumer(
+C:\Users\abdul\sdaia-capstone\src\consumer.py:78: DeprecationWarning: value_serializer does not implement 
+kafka.serializer.Serializer
+  main()
+[CONSUMER] REJECTED @offset 5000: 1 validation error for RetailTransaction
+[CONSUMER] REJECTED @offset 5001: 1 validation error for RetailTransaction
+[CONSUMER] REJECTED @offset 5002: 1 validation error for RetailTransaction
+[CONSUMER] done: 5000 accepted -> C:\Users\abdul\sdaia-capstone\data\landing\validated_1785962598.jsonl
+[CONSUMER]       3 rejected -> dead-letter topic 'retail_transactions_dlq'

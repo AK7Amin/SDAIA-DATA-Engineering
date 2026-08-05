@@ -1,0 +1,13 @@
+﻿python.exe : C:\Users\abdul\sdaia-capstone\src\dump_dlq.py:12: DeprecationWarning: value_deserializer does not 
+implement kafka.serializer.Deserializer
+At line:1 char:678
++ ... er_batchA.log | Select-Object -Last 5; & $py dump_dlq.py 2>&1 | Tee-O ...
++                                            ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\abdul\...er.Deserializer:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  consumer = KafkaConsumer(
+[DLQ] offset 0: 1 validation error for RetailTransaction | InvoiceNo
+[DLQ] offset 1: 1 validation error for RetailTransaction | InvoiceDate
+[DLQ] offset 2: 1 validation error for RetailTransaction | Quantity
+[DLQ] 3 dead-lettered messages -> C:\Users\abdul\sdaia-capstone\evidence\ingestion\dlq_contents.jsonl

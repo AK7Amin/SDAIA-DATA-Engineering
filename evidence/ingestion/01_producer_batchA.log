@@ -1,0 +1,10 @@
+﻿python.exe : C:\Users\abdul\sdaia-capstone\src\producer.py:78: DeprecationWarning: value_serializer does not implement 
+kafka.serializer.Serializer
+At line:1 char:439
++ ... ython.exe"; & $py producer.py --batch A --inject-malformed 3 2>&1 | T ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (C:\Users\abdul\...izer.Serializer:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  main()
+[PRODUCER] batch A: sent 5003 events (3 malformed) to 'retail_transactions' @ localhost:29092
