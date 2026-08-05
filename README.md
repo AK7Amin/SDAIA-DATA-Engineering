@@ -13,6 +13,10 @@
 
 ## 🎬 Demo — the pipeline in action
 
+
+https://github.com/user-attachments/assets/4c8633c6-aa90-4edc-b775-ec320f0ca999
+
+
 🎥 **[Short demo video (35s)](docs/demo_short.mp4)** — the Airflow grid across all four
 runs, the graph views, and the halted failure run ·
 **[Full walkthrough (2:32, 2x speed)](docs/demo_walkthrough.mp4)**
