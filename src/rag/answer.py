@@ -77,6 +77,24 @@ def compose_answer(query, top_chunks):
     return "\n".join(lines)
 
 
+def expand_query(query):
+    """Pre-retrieval query rewriting (Day 3, Advanced RAG pattern).
+
+    Superlative intent ("top/best product") fails against this corpus because
+    'top' and 'revenue' occur in every document ('top countries', 'total
+    revenue'), so neither BM25 nor the embedding can tell rank 1 from rank
+    423. The rank-1/top-10 documents state their status in distinctive words —
+    expanding the query with those same words closes the vocabulary gap.
+    """
+    ql = query.lower()
+    if any(t in ql for t in ("top ", "best", "highest", "number one", "#1")):
+        expanded = (query + " (the number one best-selling highest-revenue "
+                    "product, ranks 1 by total revenue)")
+        print(f"[answer] query expanded for retrieval: {expanded}")
+        return expanded
+    return query
+
+
 def run_pipeline(query):
     import chromadb
     from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
@@ -85,10 +103,14 @@ def run_pipeline(query):
     client = chromadb.PersistentClient(path=CHROMA_DIR)
     collection = client.get_collection(COLLECTION_NAME, embedding_function=ef)
     bm25, chunks = load_bm25()
+    query = expand_query(query)
 
-    vec_hits = vector_search(collection, query, top_k=6)
-    bm25_hits = bm25_search(bm25, chunks, query, top_k=6)
-    fused = reciprocal_rank_fusion(vec_hits, bm25_hits, top_k=6)
+    # wide-then-precise: catalog docs share most vocabulary ("revenue",
+    # "invoices" appear in all 662), so stage-1 recall needs depth — the
+    # cross-encoder then reads (query, chunk) jointly and lifts the right one
+    vec_hits = vector_search(collection, query, top_k=15)
+    bm25_hits = bm25_search(bm25, chunks, query, top_k=15)
+    fused = reciprocal_rank_fusion(vec_hits, bm25_hits, top_k=12)
     reranked = rerank(query, fused, top_k=3)
     return vec_hits, bm25_hits, fused, reranked
 
