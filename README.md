@@ -1,33 +1,33 @@
-# 🏗️ Real-Time E-Commerce Data Platform with RAG — منصة بيانات لحظية بمساعد ذكي
+﻿# ًںڈ—ï¸ڈ Real-Time E-Commerce Data Platform with RAG â€” ظ…ظ†طµط© ط¨ظٹط§ظ†ط§طھ ظ„ط­ط¸ظٹط© ط¨ظ…ط³ط§ط¹ط¯ ط°ظƒظٹ
 
-> Capstone for the **SDAIA Academy** program **"Modern Data Engineering for AI Systems"** —
+> Capstone for the **SDAIA Academy** program **"Modern Data Engineering for AI Systems"** â€”
 > a full production-style pipeline: real Kafka ingestion with a data contract,
 > a Bronze/Silver/Gold Delta Lakehouse with a real MERGE, a hybrid-search RAG
 > assistant with citations, all wired by an Airflow DAG whose quality gates
 > **actually halt the pipeline** when bad data appears.
 >
-> مشروع ختامي لدورة «هندسة البيانات الحديثة لأنظمة الذكاء الاصطناعي»: أنبوب متكامل
-> يستوعب معاملات حقيقية عبر Kafka بعقد بيانات، يخزّنها بطبقات Delta الثلاث بدمج MERGE
-> حقيقي، ويبني فوقها مساعد أسئلة RAG ببحث هجين واستشهادات — كله بتنسيق Airflow
-> وبوابات جودة **توقف الأنبوب فعلاً** عند البيانات الفاسدة.
+> ظ…ط´ط±ظˆط¹ ط®طھط§ظ…ظٹ ظ„ط¯ظˆط±ط© آ«ظ‡ظ†ط¯ط³ط© ط§ظ„ط¨ظٹط§ظ†ط§طھ ط§ظ„ط­ط¯ظٹط«ط© ظ„ط£ظ†ط¸ظ…ط© ط§ظ„ط°ظƒط§ط، ط§ظ„ط§طµط·ظ†ط§ط¹ظٹآ»: ط£ظ†ط¨ظˆط¨ ظ…طھظƒط§ظ…ظ„
+> ظٹط³طھظˆط¹ط¨ ظ…ط¹ط§ظ…ظ„ط§طھ ط­ظ‚ظٹظ‚ظٹط© ط¹ط¨ط± Kafka ط¨ط¹ظ‚ط¯ ط¨ظٹط§ظ†ط§طھطŒ ظٹط®ط²ظ‘ظ†ظ‡ط§ ط¨ط·ط¨ظ‚ط§طھ Delta ط§ظ„ط«ظ„ط§ط« ط¨ط¯ظ…ط¬ MERGE
+> ط­ظ‚ظٹظ‚ظٹطŒ ظˆظٹط¨ظ†ظٹ ظپظˆظ‚ظ‡ط§ ظ…ط³ط§ط¹ط¯ ط£ط³ط¦ظ„ط© RAG ط¨ط¨ط­ط« ظ‡ط¬ظٹظ† ظˆط§ط³طھط´ظ‡ط§ط¯ط§طھ â€” ظƒظ„ظ‡ ط¨طھظ†ط³ظٹظ‚ Airflow
+> ظˆط¨ظˆط§ط¨ط§طھ ط¬ظˆط¯ط© **طھظˆظ‚ظپ ط§ظ„ط£ظ†ط¨ظˆط¨ ظپط¹ظ„ط§ظ‹** ط¹ظ†ط¯ ط§ظ„ط¨ظٹط§ظ†ط§طھ ط§ظ„ظپط§ط³ط¯ط©.
 
-## 🎬 Demo — the pipeline in action
+## ًںژ¬ Demo â€” the pipeline in action
 
-🎥 **[Short demo video (35s)](docs/demo_short.mp4)** — the Airflow grid across all four
-runs, the graph views, and the halted failure run ·
-**[Full walkthrough (5:20)](docs/demo_walkthrough.mp4)**
+ًںژ¥ **[Short demo video (35s)](docs/demo_short.mp4)** â€” the Airflow grid across all four
+runs, the graph views, and the halted failure run آ·
+**[Full walkthrough (2:32, 2x speed)](docs/demo_walkthrough.mp4)**
 
 ![Pipeline demo: clean run, halted failure run, and full run history](docs/pipeline_demo.gif)
 
-**The two moments that matter** — a fully green clean run, and the deliberate-failure
+**The two moments that matter** â€” a fully green clean run, and the deliberate-failure
 run where the silver quality gate catches injected duplicate keys and every
 downstream stage is halted (`upstream_failed`) before it can run:
 
-| ✅ Clean run — all 10 tasks green | ⛔ Failure demo — gate halts downstream |
+| âœ… Clean run â€” all 10 tasks green | â›” Failure demo â€” gate halts downstream |
 |---|---|
 | ![All green run](evidence/airflow/05_success_run_all_green.png) | ![Halted run](evidence/airflow/01_failed_run_graph_full.png) |
 
-**Full run history (Grid view)** — an early real bug (red `bronze_ingest`, an
+**Full run history (Grid view)** â€” an early real bug (red `bronze_ingest`, an
 OpenLineage UUID issue, fixed in commit `62c1417`), two fully green runs
 (initial load + batch-B MERGE), then the deliberate gate-halt demo:
 
@@ -39,7 +39,7 @@ OpenLineage UUID issue, fixed in commit `62c1417`), two fully green runs
 Q: What is the top product by revenue and how many invoices does it appear in?
 
 BM25              Vector            RRF               Rerank
-22423_chunk_005   84952C_chunk_005  22423_chunk_005   22423_chunk_005   ← each stage re-ranks
+22423_chunk_005   84952C_chunk_005  22423_chunk_005   22423_chunk_005   â†گ each stage re-ranks
 
 A: [REGENCY CAKESTAND 3 TIER] It ranks 1 out of 1581 products by total revenue.
    It is the top product by revenue: the number one best-selling,
@@ -48,44 +48,44 @@ A: [REGENCY CAKESTAND 3 TIER] It ranks 1 out of 1581 products by total revenue.
 Sources: [Source 1] chunk_id=22423_chunk_005 doc_id=22423 ...
 ```
 
-## 📋 Deliverables and their evidence (executed runs, not just code)
+## ًں“‹ Deliverables and their evidence (executed runs, not just code)
 
 | # | Deliverable | Proof in this repo |
 |---|---|---|
-| 1 | **Kafka ingestion** — producer + consumer, Pydantic contract at the boundary, dead-letter topic | [`evidence/ingestion/`](evidence/ingestion/) — 5,000 events accepted; 3 malformed events dead-lettered, each with a **distinct recorded rejection reason** |
-| 2 | **Delta Lakehouse** — bronze/silver/gold, real MERGE on a business key, schema enforcement | [`evidence/delta/`](evidence/delta/) — one atomic MERGE: **1,908 updated + 1,947 inserted**; an undeclared-column write **refused** by Delta |
-| 3 | **RAG pipeline** — chunking, embeddings, ChromaDB + BM25, RRF fusion, cross-encoder rerank, citations | [`evidence/rag/`](evidence/rag/) — 3 answered queries with `[Source N]` citations + a per-stage ranking comparison proving every stage matters |
-| 4 | **Airflow orchestration** — correct dependencies; failed gate halts downstream | [`evidence/airflow/`](evidence/airflow/) — screenshots + task states: `ge_gate_silver` **failed** → `silver_to_gold`, `build_rag_*` all **upstream_failed** |
-| 5 | **Quality gate + lineage** — Great Expectations checkpoints that gate; OpenLineage per stage | [`evidence/ge_lineage/`](evidence/ge_lineage/) — checkpoint results (pass **and** fail) + START/COMPLETE/FAIL events sharing **one runId per pipeline run** |
+| 1 | **Kafka ingestion** â€” producer + consumer, Pydantic contract at the boundary, dead-letter topic | [`evidence/ingestion/`](evidence/ingestion/) â€” 5,000 events accepted; 3 malformed events dead-lettered, each with a **distinct recorded rejection reason** |
+| 2 | **Delta Lakehouse** â€” bronze/silver/gold, real MERGE on a business key, schema enforcement | [`evidence/delta/`](evidence/delta/) â€” one atomic MERGE: **1,908 updated + 1,947 inserted**; an undeclared-column write **refused** by Delta |
+| 3 | **RAG pipeline** â€” chunking, embeddings, ChromaDB + BM25, RRF fusion, cross-encoder rerank, citations | [`evidence/rag/`](evidence/rag/) â€” 3 answered queries with `[Source N]` citations + a per-stage ranking comparison proving every stage matters |
+| 4 | **Airflow orchestration** â€” correct dependencies; failed gate halts downstream | [`evidence/airflow/`](evidence/airflow/) â€” screenshots + task states: `ge_gate_silver` **failed** â†’ `silver_to_gold`, `build_rag_*` all **upstream_failed** |
+| 5 | **Quality gate + lineage** â€” Great Expectations checkpoints that gate; OpenLineage per stage | [`evidence/ge_lineage/`](evidence/ge_lineage/) â€” checkpoint results (pass **and** fail) + START/COMPLETE/FAIL events sharing **one runId per pipeline run** |
 
-## 🏛️ Architecture
+## ًںڈ›ï¸ڈ Architecture
 
 ```
-producer.py ──► Kafka topic: retail_transactions ──► consumer.py + Pydantic contract
-                                   │ valid                     │ malformed
-                                   ▼                           ▼
+producer.py â”€â”€â–؛ Kafka topic: retail_transactions â”€â”€â–؛ consumer.py + Pydantic contract
+                                   â”‚ valid                     â”‚ malformed
+                                   â–¼                           â–¼
                             Bronze (Delta, raw+audit)   dead-letter topic (+ reason)
-                                   │ GE gate (contract-level checks)
-                                   │ dedupe → date parsing → grain aggregation → MERGE
-                                   ▼
-                            Silver (Delta)  ◄── schema enforcement (bad write refused)
-                                   │ GE gate (compound uniqueness — the halting gate)
-                                   ▼
+                                   â”‚ GE gate (contract-level checks)
+                                   â”‚ dedupe â†’ date parsing â†’ grain aggregation â†’ MERGE
+                                   â–¼
+                            Silver (Delta)  â—„â”€â”€ schema enforcement (bad write refused)
+                                   â”‚ GE gate (compound uniqueness â€” the halting gate)
+                                   â–¼
                             Gold (Delta, ranked genuine aggregate)
-                                   │
-       product docs ──► chunking (doc_id/chunk_id, overlap) ──► ChromaDB + BM25
-                        ──► RRF fusion (k=60) ──► cross-encoder rerank
-                        ──► extractive answer with [Source N] citations
+                                   â”‚
+       product docs â”€â”€â–؛ chunking (doc_id/chunk_id, overlap) â”€â”€â–؛ ChromaDB + BM25
+                        â”€â”€â–؛ RRF fusion (k=60) â”€â”€â–؛ cross-encoder rerank
+                        â”€â”€â–؛ extractive answer with [Source N] citations
 
-Airflow DAG: produce → consume/validate → bronze → gate → silver → [inject?] → gate → gold → docs → index
-OpenLineage: START / COMPLETE / FAIL per stage, unified runId          (failed gate ⇒ downstream halted)
+Airflow DAG: produce â†’ consume/validate â†’ bronze â†’ gate â†’ silver â†’ [inject?] â†’ gate â†’ gold â†’ docs â†’ index
+OpenLineage: START / COMPLETE / FAIL per stage, unified runId          (failed gate â‡’ downstream halted)
 ```
 
-Details: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · Requirements & acceptance criteria: [`docs/PRD.md`](docs/PRD.md)
+Details: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) آ· Requirements & acceptance criteria: [`docs/PRD.md`](docs/PRD.md)
 
-## 🚀 How to run
+## ًںڑ€ How to run
 
-Prerequisites: **Docker Desktop** only — everything runs in containers.
+Prerequisites: **Docker Desktop** only â€” everything runs in containers.
 
 ```bash
 git clone https://github.com/AK7Amin/SDAIA-DATA-Engineering.git
@@ -96,11 +96,11 @@ docker compose up --build -d        # Kafka (KRaft) + Airflow with an isolated c
 1. Put the dataset in place (one time): download the
    [UCI Online Retail zip](https://archive.ics.uci.edu/static/public/352/online+retail.zip)
    into `data/online_retail.zip`, then `python src/prepare_data.py`.
-2. Open **http://localhost:8080** (user `admin`, password `admin` — dev only).
-3. Trigger `capstone_pipeline` with default params → expected: all 10 tasks green.
-4. Trigger again with `{"batch": "B", "inject_malformed": 0}` → expected: MERGE
+2. Open **http://localhost:8080** (user `admin`, password `admin` â€” dev only).
+3. Trigger `capstone_pipeline` with default params â†’ expected: all 10 tasks green.
+4. Trigger again with `{"batch": "B", "inject_malformed": 0}` â†’ expected: MERGE
    metrics show updates **and** inserts.
-5. Trigger with `{"inject_corruption": true}` → expected: `ge_gate_silver` fails,
+5. Trigger with `{"inject_corruption": true}` â†’ expected: `ge_gate_silver` fails,
    everything downstream is halted. Run the `reset_demo_state` DAG to clean up.
 6. Ask the assistant:
    ```bash
@@ -108,7 +108,7 @@ docker compose up --build -d        # Kafka (KRaft) + Airflow with an isolated c
      /opt/capstone/src/rag/answer.py "Tell me about lantern products" --compare
    ```
 
-## 🧪 Tests
+## ًں§ھ Tests
 
 23 unit tests over the pure-Python core (contract gate, chunking, RRF math):
 
@@ -119,27 +119,27 @@ python -m pytest tests -q      # 23 passed
 They earn their keep: the contextual-header change to chunking was caught by two
 failing tests before it could ship silently.
 
-## 📦 Dataset
+## ًں“¦ Dataset
 
-[UCI Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail) — 541,909
-real transactions (2010–2011) with genuine quality problems (25% missing CustomerID,
+[UCI Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail) â€” 541,909
+real transactions (2010â€“2011) with genuine quality problems (25% missing CustomerID,
 negative quantities = real cancellations, 5,268 duplicates) that exercise every
 failure path honestly.
 
 Citation (CC BY 4.0): Chen, D. (2015). *Online Retail* [Dataset].
 UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
 
-## 👥 Team
+## ًں‘¥ Team
 
-- Abdulaziz Mulia — عبدالعزيز مليا
-- Saif Abukhamis — سيف بن دايف أبوخميس
-- Feras Al-Harbi — فراس بن محمد الحربي
-- Faisal Al-Abdul-Jabbar — فيصل بن عبدالله العبدالجبار
+- Abdulaziz Mulia â€” ط¹ط¨ط¯ط§ظ„ط¹ط²ظٹط² ظ…ظ„ظٹط§
+- Saif Abukhamis â€” ط³ظٹظپ ط¨ظ† ط¯ط§ظٹظپ ط£ط¨ظˆط®ظ…ظٹط³
+- Feras Al-Harbi â€” ظپط±ط§ط³ ط¨ظ† ظ…ط­ظ…ط¯ ط§ظ„ط­ط±ط¨ظٹ
+- Faisal Al-Abdul-Jabbar â€” ظپظٹطµظ„ ط¨ظ† ط¹ط¨ط¯ط§ظ„ظ„ظ‡ ط§ظ„ط¹ط¨ط¯ط§ظ„ط¬ط¨ط§ط±
 
-## 🎓 Training program attribution
+## ًںژ“ Training program attribution
 
 This project was completed as the capstone for **"Modern Data Engineering for AI
 Systems"**, a 5-day training program by **SDAIA Academy** (delivered via Learning
-Space), trainer Mohammed Albeladi, session dates 2–6 August 2026.
+Space), trainer Mohammed Albeladi, session dates 2â€“6 August 2026.
 
 SDAIA Academy on GitHub: **https://github.com/SDAIAAcademy**
