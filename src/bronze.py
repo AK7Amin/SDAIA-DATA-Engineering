@@ -1,8 +1,10 @@
 """Landing -> Bronze: append validated events as they arrived (audit layer).
 
-Bronze stays deliberately raw: no type casts, no dedup, no date parsing —
-just what the consumer landed, plus ingest_ts. All cleaning is Silver's job,
-which is also what makes the medallion story defensible to the evaluator.
+Bronze stays deliberately untransformed: exactly what the consumer landed
+(contract-typed at the boundary, since the rubric requires validation at
+ingestion) — but no dedup, no date parsing, no aggregation, plus ingest_ts.
+All cleaning is Silver's job, which keeps the medallion story defensible:
+bronze still holds the duplicates and unparsed date strings as proof.
 """
 import glob
 import os

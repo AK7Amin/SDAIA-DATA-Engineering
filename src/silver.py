@@ -8,9 +8,10 @@ throws "multiple source rows matched" if the source isn't key-unique.
 Aggregation rules (deterministic, documented for the evaluator):
   Quantity     = SUM
   line_revenue = SUM(Quantity * UnitPrice)
-  UnitPrice    = line_revenue / Quantity (derived; first price if qty == 0)
+  UnitPrice    = line_revenue / Quantity (derived; MIN price if qty == 0)
   invoice_ts   = MIN(parsed InvoiceDate)   [format M/d/yyyy H:mm]
-  Description/CustomerID/Country = FIRST(..., ignorenulls=True)
+  Description/CustomerID/Country = MIN(...)  — order-independent, so the same
+  input always yields the same row (F.first() would depend on shuffle order)
 
 Non-product StockCodes (POST, D, BANK CHARGES...) are real charges but not
 products — they go to a side table, keeping product analytics and RAG clean.
@@ -67,11 +68,11 @@ def main() -> None:
     grain = df.groupBy("InvoiceNo", "StockCode").agg(
         F.sum("Quantity").alias("Quantity"),
         F.sum(F.col("Quantity") * F.col("UnitPrice")).alias("line_revenue"),
-        F.first("UnitPrice", ignorenulls=True).alias("_first_price"),
+        F.min("UnitPrice").alias("_first_price"),
         F.min("invoice_ts").alias("invoice_ts"),
-        F.first("Description", ignorenulls=True).alias("Description"),
-        F.first("CustomerID", ignorenulls=True).alias("CustomerID"),
-        F.first("Country", ignorenulls=True).alias("Country"),
+        F.min("Description").alias("Description"),
+        F.min("CustomerID").alias("CustomerID"),
+        F.min("Country").alias("Country"),
         F.max("is_cancellation").alias("is_cancellation"),
     ).withColumn(
         "UnitPrice",
