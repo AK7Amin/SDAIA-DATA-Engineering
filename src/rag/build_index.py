@@ -38,6 +38,9 @@ def chunk_documents(docs, chunk_size=2):
     all_chunks = []
     for doc in docs:
         sentences = re.split(r"(?<=[.!?])\s+", doc["text"].strip())
+        # contextual header: without it, a mid-document chunk like "211 units
+        # were sold" loses the product's identity and retrieval goes blind
+        header = doc.get("title") or doc["doc_id"]
         for i in range(0, len(sentences), max(1, chunk_size - 1)):
             chunk_text = " ".join(sentences[i : i + chunk_size])
             if not chunk_text.strip():
@@ -45,7 +48,7 @@ def chunk_documents(docs, chunk_size=2):
             all_chunks.append(
                 {
                     "id": f"{doc['doc_id']}_chunk_{i:03d}",
-                    "text": chunk_text,
+                    "text": f"[{header}] {chunk_text}",
                     "doc_id": doc["doc_id"],
                 }
             )

@@ -75,7 +75,9 @@ def main():
     os.makedirs(DATA_DIR, exist_ok=True)
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         for row in rows:
-            doc = {"doc_id": row["StockCode"], "text": row_to_document(row)}
+            doc = {"doc_id": row["StockCode"],
+                   "title": (row["Description"] or row["StockCode"]).strip(),
+                   "text": row_to_document(row)}
             f.write(json.dumps(doc) + "\n")
 
     print(f"[docs_from_gold] wrote {len(rows)} documents -> {OUT_PATH}")
