@@ -15,6 +15,7 @@ from pathlib import Path
 # and the host (src/) layouts, so config.py is always the parent directory.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import DATA_DIR, GOLD_PATH  # noqa: E402
+from lineage import stage  # noqa: E402
 
 MAX_PRODUCTS = 1000
 OUT_PATH = os.path.join(DATA_DIR, "rag_docs.jsonl")
@@ -97,4 +98,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    with stage("build_rag_documents"):
+        main()

@@ -17,6 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from config import CHROMA_DIR, DATA_DIR  # noqa: E402
+from lineage import stage  # noqa: E402
 
 COLLECTION_NAME = "rag_capstone_chunks"
 DOCS_PATH = os.path.join(DATA_DIR, "rag_docs.jsonl")
@@ -115,4 +116,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    with stage("build_rag_index"):
+        main()

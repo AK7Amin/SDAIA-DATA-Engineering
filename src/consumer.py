@@ -16,6 +16,7 @@ from pydantic import ValidationError
 
 from config import KAFKA_BOOTSTRAP, LANDING_DIR, TOPIC_DLQ, TOPIC_TRANSACTIONS
 from contracts import RetailTransaction
+from lineage import stage
 
 IDLE_POLLS = 3
 POLL_TIMEOUT_MS = 3000
@@ -75,4 +76,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    with stage("consume_validate_to_landing"):
+        main()

@@ -14,6 +14,7 @@ import json
 from kafka import KafkaProducer
 
 from config import KAFKA_BOOTSTRAP, RAW_CSV, TOPIC_TRANSACTIONS
+from lineage import stage
 
 MALFORMED = [
     {"InvoiceNo": "FREE-STUFF", "StockCode": "85123A", "Description": "bad invoice format",
@@ -75,4 +76,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    with stage("produce_to_kafka"):
+        main()
