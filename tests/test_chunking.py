@@ -28,9 +28,11 @@ class TestChunkDocuments:
         chunks = chunk_documents([make_doc()], chunk_size=2)
         # every consecutive pair of chunks should share at least one sentence:
         # the last sentence of chunk N is the first sentence of chunk N+1.
+        # chunks carry a "[title] " contextual header — strip it before comparing.
+        header = re.compile(r"^\[[^\]]*\]\s*")
         for prev, nxt in zip(chunks, chunks[1:]):
-            prev_sentences = re.split(r"(?<=[.!?])\s+", prev["text"].strip())
-            next_sentences = re.split(r"(?<=[.!?])\s+", nxt["text"].strip())
+            prev_sentences = re.split(r"(?<=[.!?])\s+", header.sub("", prev["text"]).strip())
+            next_sentences = re.split(r"(?<=[.!?])\s+", header.sub("", nxt["text"]).strip())
             assert prev_sentences[-1] == next_sentences[0], (
                 f"expected overlap between {prev['text']!r} and {nxt['text']!r}"
             )
@@ -54,4 +56,6 @@ class TestChunkDocuments:
     def test_single_sentence_doc_yields_one_chunk(self):
         chunks = chunk_documents([make_doc(text="Just one sentence.")], chunk_size=2)
         assert len(chunks) == 1
-        assert chunks[0]["text"] == "Just one sentence."
+        # text carries the contextual header, then the sentence itself
+        assert chunks[0]["text"].endswith("Just one sentence.")
+        assert chunks[0]["text"].startswith("[")
