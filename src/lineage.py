@@ -44,7 +44,14 @@ def get_run_id() -> str:
     """
     env_run_id = os.environ.get("OL_RUN_ID")
     if env_run_id:
-        return env_run_id
+        # Airflow run ids ("manual__2026-08-05T...") are not UUIDs, but the
+        # OpenLineage client requires one. uuid5 is deterministic: every task
+        # in the same DAG run derives the SAME uuid from the same run id.
+        import uuid
+        try:
+            return str(uuid.UUID(env_run_id))
+        except ValueError:
+            return str(uuid.uuid5(uuid.NAMESPACE_URL, env_run_id))
 
     if os.path.exists(_RUN_ID_FILE):
         with open(_RUN_ID_FILE, encoding="utf-8") as fh:
