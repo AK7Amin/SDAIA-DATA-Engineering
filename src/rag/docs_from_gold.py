@@ -54,6 +54,18 @@ def row_to_document(row):
         f"Its top countries by sales were {row['top_countries']}.",
         f"It ranks {rank} out of {total_products} products by total revenue.",
     ]
+    # numbers barely move an embedding ("ranks 1" ≈ "ranks 47"), words do —
+    # superlative queries like "top product by revenue" need these spelled out
+    if rank == 1:
+        sentences.append(
+            "It is the top product by revenue: the number one best-selling, "
+            "highest-revenue product in the entire catalog."
+        )
+    elif rank <= 10:
+        sentences.append(
+            f"It is one of the top 10 best-selling products by revenue "
+            f"(number {rank})."
+        )
     return " ".join(sentences)
 
 
