@@ -8,7 +8,17 @@ and serves a Retrieval-Augmented Generation (RAG) assistant over the Gold layer 
 all orchestrated by an Airflow DAG with Great Expectations quality gates and
 OpenLineage lineage events.
 
-> **Status: work in progress** — built incrementally; see the commit history.
+## Deliverables and their evidence (executed runs, not just code)
+
+| # | Deliverable | Proof (in this repo) |
+|---|---|---|
+| 1 | Kafka ingestion + contract + DLQ | [`evidence/ingestion/`](evidence/ingestion/) — 5,000 events accepted, 3 malformed dead-lettered with distinct recorded reasons |
+| 2 | Delta bronze/silver/gold + MERGE + schema enforcement | [`evidence/delta/`](evidence/delta/) — MERGE metrics (1,908 updated + 1,947 inserted in one atomic op), undeclared-column write refused |
+| 3 | RAG: chunking, hybrid search, RRF, reranking, citations | [`evidence/rag/`](evidence/rag/) — three answered queries with `[Source N]` citations and a per-stage ranking comparison (BM25 / vector / RRF / rerank) |
+| 4 | Airflow DAG halts on failed gate | [`evidence/airflow/`](evidence/airflow/) — deliberate-failure run: `ge_gate_silver` **failed**, all downstream tasks **upstream_failed** |
+| 5 | GE gates + OpenLineage per stage | [`evidence/ge_lineage/`](evidence/ge_lineage/) — real GX checkpoint results (pass AND fail) + OpenLineage START/COMPLETE/FAIL events sharing one runId per pipeline run |
+
+
 
 ## Architecture
 
