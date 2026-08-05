@@ -102,7 +102,10 @@ docker compose up --build -d        # Kafka (KRaft) + Airflow with an isolated c
 
 1. Put the dataset in place (one time): download the
    [UCI Online Retail zip](https://archive.ics.uci.edu/static/public/352/online+retail.zip)
-   into `data/online_retail.zip`, then `python src/prepare_data.py`.
+   into `data/online_retail.zip`, then convert it inside the container:
+   ```bash
+   docker exec capstone-airflow /opt/venvs/compute/bin/python /opt/capstone/src/prepare_data.py
+   ```
 2. Open **http://localhost:8080** (user `admin`, password `admin` — dev only).
 3. Trigger `capstone_pipeline` with default params → expected: all 10 tasks green.
 4. Trigger again with `{"batch": "B", "inject_malformed": 0}` → expected: MERGE
@@ -117,7 +120,10 @@ docker compose up --build -d        # Kafka (KRaft) + Airflow with an isolated c
 
 ## 🧪 Tests
 
-23 unit tests over the pure-Python core (contract gate, chunking, RRF math):
+23 unit tests over the pure-Python core (contract gate, chunking, RRF math).
+They need a local Python 3.12 with `pip install pytest pydantic rank_bm25`
+(the one part that runs on the host, since `tests/` is not mounted into the
+container):
 
 ```bash
 python -m pytest tests -q      # 23 passed

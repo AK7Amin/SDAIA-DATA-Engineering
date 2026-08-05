@@ -83,8 +83,8 @@
          │                              │
          └────────────┬─────────────────┘
                        │  rag/answer.py:
-                       │    vector_search(top 6) + bm25_search(top 6)
-                       │    → reciprocal_rank_fusion(k=60, top 6)
+                       │    vector_search(top 15) + bm25_search(top 15)
+                       │    → reciprocal_rank_fusion(k=60, top 12)
                        │    → cross-encoder rerank (ms-marco-MiniLM-L-6-v2, top 3)
                        ▼
               compose_answer(): extractive answer,
@@ -190,9 +190,10 @@ records must be well-typed and well-formed before they are allowed past the
 consumer at all. That gate lives in `src/contracts.py`
 (`RetailTransaction`), enforced by `consumer.py` before anything is written
 to `data/landing/`. Bronze, by contrast, is the audit layer: once a record
-has passed the contract, Bronze must preserve it byte-for-byte (plus an
-`ingest_ts`) including duplicates from Kafka re-delivery or overlapping
-batches. If Bronze also deduplicated or cast types, there would be no
+has passed the contract, Bronze preserves it exactly as validated —
+contract-typed by `model_dump()`, plus Kafka offset/partition and an
+`ingest_ts`, but with no dedup, no date parsing, and no aggregation —
+including duplicates from Kafka re-delivery or overlapping batches. If Bronze also deduplicated or cast types, there would be no
 raw-layer evidence left to show the evaluator that ingestion actually saw
 what came off the wire — the medallion architecture's audit guarantee would
 collapse into "Bronze is just a slightly-earlier Silver." Keeping the two
