@@ -14,7 +14,10 @@
 ## 🎬 Demo — the pipeline in action
 
 
-https://github.com/user-attachments/assets/4c8633c6-aa90-4edc-b775-ec320f0ca999
+
+
+https://github.com/user-attachments/assets/6c0cb258-fd1b-4bf2-ad0d-8a395cb4d478
+
 
 
 🎥 **[Short demo video (35s)](docs/demo_short.mp4)** — the Airflow grid across all four
