@@ -12,9 +12,10 @@ from spark_utils import get_spark  # noqa: E402
 
 
 def main() -> None:
+    from datetime import datetime
     spark = get_spark("schema_enforcement_demo")
     bad = spark.createDataFrame(
-        [("999999", "99999X", "sneaky row", 1, None, 0.0, "", "Nowhere",
+        [("999999", "99999X", "sneaky row", 1, datetime(2011, 1, 1), 0.0, "", "Nowhere",
           0.0, False, False, 99.9)],
         ["InvoiceNo", "StockCode", "Description", "Quantity", "invoice_ts",
          "UnitPrice", "CustomerID", "Country", "line_revenue",
