@@ -1,0 +1,55 @@
+[2026-08-05T21:27:18.132+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T21:27:18.143+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.maybe_inject_corruption manual__2026-08-05T21:25:33+00:00 [queued]>
+[2026-08-05T21:27:18.163+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.maybe_inject_corruption manual__2026-08-05T21:25:33+00:00 [queued]>
+[2026-08-05T21:27:18.170+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T21:27:18.193+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): maybe_inject_corruption> on 2026-08-05 21:25:33+00:00
+[2026-08-05T21:27:18.199+0000] {standard_task_runner.py:72} INFO - Started process 8528 to run task
+[2026-08-05T21:27:18.202+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'maybe_inject_corruption', 'manual__2026-08-05T21:25:33+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmp4puezn45']
+[2026-08-05T21:27:18.204+0000] {standard_task_runner.py:105} INFO - Job 36: Subtask maybe_inject_corruption
+[2026-08-05T21:27:18.264+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.maybe_inject_corruption manual__2026-08-05T21:25:33+00:00 [running]> on host 464d4962317f
+[2026-08-05T21:27:18.325+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='maybe_inject_corruption' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T21:25:33+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T21:25:33+00:00'
+[2026-08-05T21:27:18.327+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T21:27:18.343+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T21:27:18.345+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/inject_corruption.py']
+[2026-08-05T21:27:18.362+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T21:27:20.780+0000] {subprocess.py:106} INFO - :: loading settings :: url = jar:file:/opt/venvs/compute/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-08-05T21:27:20.860+0000] {subprocess.py:106} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2026-08-05T21:27:20.862+0000] {subprocess.py:106} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2026-08-05T21:27:20.866+0000] {subprocess.py:106} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2026-08-05T21:27:20.867+0000] {subprocess.py:106} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-735a7ee3-07a6-47b1-a8a6-9ea94cb710a3;1.0
+[2026-08-05T21:27:20.869+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:27:20.975+0000] {subprocess.py:106} INFO - 	found io.delta#delta-spark_2.12;3.2.0 in central
+[2026-08-05T21:27:21.002+0000] {subprocess.py:106} INFO - 	found io.delta#delta-storage;3.2.0 in central
+[2026-08-05T21:27:21.022+0000] {subprocess.py:106} INFO - 	found org.antlr#antlr4-runtime;4.9.3 in central
+[2026-08-05T21:27:21.044+0000] {subprocess.py:106} INFO - :: resolution report :: resolve 171ms :: artifacts dl 7ms
+[2026-08-05T21:27:21.045+0000] {subprocess.py:106} INFO - 	:: modules in use:
+[2026-08-05T21:27:21.046+0000] {subprocess.py:106} INFO - 	io.delta#delta-spark_2.12;3.2.0 from central in [default]
+[2026-08-05T21:27:21.047+0000] {subprocess.py:106} INFO - 	io.delta#delta-storage;3.2.0 from central in [default]
+[2026-08-05T21:27:21.049+0000] {subprocess.py:106} INFO - 	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2026-08-05T21:27:21.050+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:27:21.051+0000] {subprocess.py:106} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-08-05T21:27:21.052+0000] {subprocess.py:106} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-08-05T21:27:21.053+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:27:21.054+0000] {subprocess.py:106} INFO - 	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2026-08-05T21:27:21.055+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:27:21.056+0000] {subprocess.py:106} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-735a7ee3-07a6-47b1-a8a6-9ea94cb710a3
+[2026-08-05T21:27:21.058+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:27:21.059+0000] {subprocess.py:106} INFO - 	0 artifacts copied, 3 already retrieved (0kB/5ms)
+[2026-08-05T21:27:21.204+0000] {subprocess.py:106} INFO - 26/08/05 21:27:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-05T21:27:21.367+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2026-08-05T21:27:21.369+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-05T21:27:29.032+0000] {subprocess.py:106} INFO - 26/08/05 21:27:29 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-08-05T21:27:37.523+0000] {subprocess.py:106} INFO - [Stage 3:=>                                                        (1 + 2) / 50][Stage 3:=====>                                                    (5 + 2) / 50][Stage 3:==========>                                               (9 + 2) / 50][Stage 3:=================>                                       (15 + 2) / 50][Stage 3:=======================>                                 (21 + 2) / 50][Stage 3:==================================>                      (30 + 2) / 50][Stage 3:============================================>            (39 + 2) / 50][Stage 3:=======================================================> (49 + 1) / 50]                                                                                [Stage 5:===============================>                         (28 + 2) / 50][Stage 5:============================================>            (39 + 2) / 50]                                                                                [INJECT] duplicating 5 row(s) into silver:
+[2026-08-05T21:27:37.536+0000] {subprocess.py:106} INFO -   InvoiceNo=536365 StockCode=21730
+[2026-08-05T21:27:37.538+0000] {subprocess.py:106} INFO -   InvoiceNo=536365 StockCode=22752
+[2026-08-05T21:27:37.540+0000] {subprocess.py:106} INFO -   InvoiceNo=536365 StockCode=71053
+[2026-08-05T21:27:37.542+0000] {subprocess.py:106} INFO -   InvoiceNo=536365 StockCode=84029E
+[2026-08-05T21:27:37.543+0000] {subprocess.py:106} INFO -   InvoiceNo=536365 StockCode=84029G
+[2026-08-05T21:27:37.544+0000] {subprocess.py:106} INFO - [INJECT] appended 5 corrupted row(s) -> /opt/capstone/data/lake/silver
+[2026-08-05T21:27:37.545+0000] {subprocess.py:106} INFO - [INJECT] next `python ge_gate.py --layer silver` run should now FAIL.
+[2026-08-05T21:27:37.976+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T21:27:37.996+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T21:27:37.999+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=maybe_inject_corruption, run_id=manual__2026-08-05T21:25:33+00:00, execution_date=20260805T212533, start_date=20260805T212718, end_date=20260805T212737
+[2026-08-05T21:27:38.042+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T21:27:38.057+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T21:27:38.067+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

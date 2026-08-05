@@ -1,0 +1,52 @@
+[2026-08-05T21:21:15.117+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T21:21:15.130+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.ge_gate_silver manual__2026-08-05T21:19:15+00:00 [queued]>
+[2026-08-05T21:21:15.137+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.ge_gate_silver manual__2026-08-05T21:19:15+00:00 [queued]>
+[2026-08-05T21:21:15.140+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T21:21:15.164+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): ge_gate_silver> on 2026-08-05 21:19:15+00:00
+[2026-08-05T21:21:15.171+0000] {standard_task_runner.py:72} INFO - Started process 5987 to run task
+[2026-08-05T21:21:15.173+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'ge_gate_silver', 'manual__2026-08-05T21:19:15+00:00', '--job-id', '27', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpn_ac_f90']
+[2026-08-05T21:21:15.176+0000] {standard_task_runner.py:105} INFO - Job 27: Subtask ge_gate_silver
+[2026-08-05T21:21:15.246+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.ge_gate_silver manual__2026-08-05T21:19:15+00:00 [running]> on host 464d4962317f
+[2026-08-05T21:21:15.312+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='ge_gate_silver' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T21:19:15+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T21:19:15+00:00'
+[2026-08-05T21:21:15.314+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T21:21:15.327+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T21:21:15.329+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/ge_gate.py --layer silver']
+[2026-08-05T21:21:15.338+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T21:21:21.129+0000] {subprocess.py:106} INFO - :: loading settings :: url = jar:file:/opt/venvs/compute/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-08-05T21:21:21.246+0000] {subprocess.py:106} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2026-08-05T21:21:21.248+0000] {subprocess.py:106} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2026-08-05T21:21:21.251+0000] {subprocess.py:106} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2026-08-05T21:21:21.253+0000] {subprocess.py:106} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-8517b53d-e0c4-4f40-93bb-7507d83792f2;1.0
+[2026-08-05T21:21:21.254+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:21:21.396+0000] {subprocess.py:106} INFO - 	found io.delta#delta-spark_2.12;3.2.0 in central
+[2026-08-05T21:21:21.432+0000] {subprocess.py:106} INFO - 	found io.delta#delta-storage;3.2.0 in central
+[2026-08-05T21:21:21.463+0000] {subprocess.py:106} INFO - 	found org.antlr#antlr4-runtime;4.9.3 in central
+[2026-08-05T21:21:21.491+0000] {subprocess.py:106} INFO - :: resolution report :: resolve 227ms :: artifacts dl 11ms
+[2026-08-05T21:21:21.493+0000] {subprocess.py:106} INFO - 	:: modules in use:
+[2026-08-05T21:21:21.494+0000] {subprocess.py:106} INFO - 	io.delta#delta-spark_2.12;3.2.0 from central in [default]
+[2026-08-05T21:21:21.496+0000] {subprocess.py:106} INFO - 	io.delta#delta-storage;3.2.0 from central in [default]
+[2026-08-05T21:21:21.497+0000] {subprocess.py:106} INFO - 	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2026-08-05T21:21:21.498+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:21:21.500+0000] {subprocess.py:106} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-08-05T21:21:21.501+0000] {subprocess.py:106} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-08-05T21:21:21.502+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:21:21.503+0000] {subprocess.py:106} INFO - 	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2026-08-05T21:21:21.504+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:21:21.506+0000] {subprocess.py:106} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-8517b53d-e0c4-4f40-93bb-7507d83792f2
+[2026-08-05T21:21:21.507+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:21:21.508+0000] {subprocess.py:106} INFO - 	0 artifacts copied, 3 already retrieved (0kB/7ms)
+[2026-08-05T21:21:21.716+0000] {subprocess.py:106} INFO - 26/08/05 21:21:21 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-05T21:21:21.901+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2026-08-05T21:21:21.902+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-05T21:21:30.335+0000] {subprocess.py:106} INFO - 26/08/05 21:21:30 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-08-05T21:21:36.426+0000] {subprocess.py:106} INFO - [Stage 3:>                                                         (0 + 2) / 50][Stage 3:==>                                                       (2 + 2) / 50][Stage 3:======>                                                   (6 + 2) / 50][Stage 3:==========>                                               (9 + 2) / 50][Stage 3:=================>                                       (15 + 2) / 50][Stage 3:=======================>                                 (21 + 2) / 50][Stage 3:==============================>                          (27 + 2) / 50][Stage 3:======================================>                  (34 + 2) / 50][Stage 3:==============================================>          (41 + 2) / 50][Stage 3:=======================================================> (49 + 1) / 50]                                                                                Calculating Metrics:   0%|          | 0/14 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/14 [00:00<?, ?it/s]Calculating Metrics:  14%|█▍        | 2/14 [00:00<00:00, 3587.94it/s]Calculating Metrics:  14%|█▍        | 2/14 [00:00<00:00, 2910.69it/s]Calculating Metrics:  21%|██▏       | 3/14 [00:00<00:00, 3912.60it/s]Calculating Metrics:  21%|██▏       | 3/14 [00:00<00:00, 3570.63it/s]Calculating Metrics:  36%|███▌      | 5/14 [00:00<00:00, 353.23it/s] Calculating Metrics:  36%|███▌      | 5/14 [00:00<00:00, 348.86it/s]Calculating Metrics: 100%|██████████| 14/14 [00:00<00:00, 566.32it/s]Calculating Metrics: 100%|██████████| 14/14 [00:00<00:00, 562.51it/s]Calculating Metrics: 100%|██████████| 14/14 [00:00<00:00, 561.14it/s]Calculating Metrics: 100%|██████████| 14/14 [00:00<00:00, 559.06it/s]
+[2026-08-05T21:21:36.816+0000] {subprocess.py:106} INFO - [GE GATE] layer=silver rows=6780 success=True
+[2026-08-05T21:21:36.820+0000] {subprocess.py:106} INFO -   [PASSED] expect_compound_columns_to_be_unique
+[2026-08-05T21:21:36.822+0000] {subprocess.py:106} INFO -   [PASSED] expect_column_values_to_not_be_null
+[2026-08-05T21:21:36.823+0000] {subprocess.py:106} INFO - [GE GATE] full result -> /opt/capstone/evidence/ge_lineage/checkpoint_silver_pass_20260805T212136.json
+[2026-08-05T21:21:37.558+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T21:21:37.581+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T21:21:37.582+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=ge_gate_silver, run_id=manual__2026-08-05T21:19:15+00:00, execution_date=20260805T211915, start_date=20260805T212115, end_date=20260805T212137
+[2026-08-05T21:21:37.632+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T21:21:37.650+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T21:21:37.660+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,103 @@
+[2026-08-05T20:59:42.115+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T20:59:42.127+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.build_rag_index manual__2026-08-05T20:56:39+00:00 [queued]>
+[2026-08-05T20:59:42.135+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.build_rag_index manual__2026-08-05T20:56:39+00:00 [queued]>
+[2026-08-05T20:59:42.137+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T20:59:42.158+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): build_rag_index> on 2026-08-05 20:56:39+00:00
+[2026-08-05T20:59:42.164+0000] {standard_task_runner.py:72} INFO - Started process 2384 to run task
+[2026-08-05T20:59:42.167+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'build_rag_index', 'manual__2026-08-05T20:56:39+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpxwib0kzl']
+[2026-08-05T20:59:42.170+0000] {standard_task_runner.py:105} INFO - Job 15: Subtask build_rag_index
+[2026-08-05T20:59:42.236+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.build_rag_index manual__2026-08-05T20:56:39+00:00 [running]> on host 464d4962317f
+[2026-08-05T20:59:42.300+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='build_rag_index' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T20:56:39+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T20:56:39+00:00'
+[2026-08-05T20:59:42.302+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T20:59:42.319+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T20:59:42.321+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/rag/build_index.py']
+[2026-08-05T20:59:42.333+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T20:59:54.442+0000] {subprocess.py:106} INFO - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-08-05T21:00:02.146+0000] {subprocess.py:106} INFO - [build_index] 1000 documents -> 6003 chunks
+[2026-08-05T21:00:02.148+0000] {subprocess.py:106} INFO - [build_index] example doc '22423' split into 6 chunks (multi-sentence source -> multiple chunks)
+[2026-08-05T21:00:02.186+0000] {subprocess.py:106} INFO - Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2573.16it/s]
+[2026-08-05T21:00:24.887+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2026-08-05T21:00:24.889+0000] {subprocess.py:106} INFO -   File "/opt/capstone/src/rag/build_index.py", line 110, in <module>
+[2026-08-05T21:00:24.893+0000] {subprocess.py:106} INFO -     main()
+[2026-08-05T21:00:24.894+0000] {subprocess.py:106} INFO -   File "/opt/capstone/src/rag/build_index.py", line 99, in main
+[2026-08-05T21:00:24.904+0000] {subprocess.py:106} INFO -     build_chroma_collection(chunks)
+[2026-08-05T21:00:24.905+0000] {subprocess.py:106} INFO -   File "/opt/capstone/src/rag/build_index.py", line 68, in build_chroma_collection
+[2026-08-05T21:00:24.912+0000] {subprocess.py:106} INFO -     collection.add(
+[2026-08-05T21:00:24.914+0000] {subprocess.py:106} INFO -   File "/opt/venvs/compute/lib/python3.12/site-packages/chromadb/api/models/Collection.py", line 118, in add
+[2026-08-05T21:00:24.915+0000] {subprocess.py:106} INFO -     self._client._add(
+[2026-08-05T21:00:24.917+0000] {subprocess.py:106} INFO -   File "/opt/venvs/compute/lib/python3.12/site-packages/chromadb/api/rust.py", line 484, in _add
+[2026-08-05T21:00:24.918+0000] {subprocess.py:106} INFO -     return self.bindings.add(
+[2026-08-05T21:00:24.918+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^^^^^
+[2026-08-05T21:00:24.920+0000] {subprocess.py:106} INFO - chromadb.errors.InternalError: ValueError: Batch size of 6003 is greater than max batch size of 5461
+[2026-08-05T21:00:25.896+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-08-05T21:00:25.903+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-08-05T21:00:25.910+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=capstone_pipeline, task_id=build_rag_index, run_id=manual__2026-08-05T20:56:39+00:00, execution_date=20260805T205639, start_date=20260805T205942, end_date=20260805T210025
+[2026-08-05T21:00:25.940+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T21:00:25.942+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 15 for task build_rag_index (Bash command failed. The command returned a non-zero exit code 1.; 2384)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-08-05T21:00:25.978+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-08-05T21:00:25.989+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T21:00:25.991+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

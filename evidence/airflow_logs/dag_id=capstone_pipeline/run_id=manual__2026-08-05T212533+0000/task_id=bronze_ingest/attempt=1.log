@@ -1,0 +1,47 @@
+[2026-08-05T21:25:58.756+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T21:25:58.768+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.bronze_ingest manual__2026-08-05T21:25:33+00:00 [queued]>
+[2026-08-05T21:25:58.774+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.bronze_ingest manual__2026-08-05T21:25:33+00:00 [queued]>
+[2026-08-05T21:25:58.776+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T21:25:58.795+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): bronze_ingest> on 2026-08-05 21:25:33+00:00
+[2026-08-05T21:25:58.801+0000] {standard_task_runner.py:72} INFO - Started process 7456 to run task
+[2026-08-05T21:25:58.803+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'bronze_ingest', 'manual__2026-08-05T21:25:33+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpzuw5ezkg']
+[2026-08-05T21:25:58.806+0000] {standard_task_runner.py:105} INFO - Job 33: Subtask bronze_ingest
+[2026-08-05T21:25:58.867+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.bronze_ingest manual__2026-08-05T21:25:33+00:00 [running]> on host 464d4962317f
+[2026-08-05T21:25:58.926+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='bronze_ingest' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T21:25:33+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T21:25:33+00:00'
+[2026-08-05T21:25:58.928+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T21:25:58.942+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T21:25:58.944+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/bronze.py']
+[2026-08-05T21:25:58.951+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T21:26:01.767+0000] {subprocess.py:106} INFO - :: loading settings :: url = jar:file:/opt/venvs/compute/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-08-05T21:26:01.846+0000] {subprocess.py:106} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2026-08-05T21:26:01.848+0000] {subprocess.py:106} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2026-08-05T21:26:01.851+0000] {subprocess.py:106} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2026-08-05T21:26:01.852+0000] {subprocess.py:106} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-33b89445-fec6-418c-9370-ecb76aa78052;1.0
+[2026-08-05T21:26:01.854+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:26:01.976+0000] {subprocess.py:106} INFO - 	found io.delta#delta-spark_2.12;3.2.0 in central
+[2026-08-05T21:26:02.012+0000] {subprocess.py:106} INFO - 	found io.delta#delta-storage;3.2.0 in central
+[2026-08-05T21:26:02.035+0000] {subprocess.py:106} INFO - 	found org.antlr#antlr4-runtime;4.9.3 in central
+[2026-08-05T21:26:02.060+0000] {subprocess.py:106} INFO - :: resolution report :: resolve 199ms :: artifacts dl 8ms
+[2026-08-05T21:26:02.061+0000] {subprocess.py:106} INFO - 	:: modules in use:
+[2026-08-05T21:26:02.063+0000] {subprocess.py:106} INFO - 	io.delta#delta-spark_2.12;3.2.0 from central in [default]
+[2026-08-05T21:26:02.064+0000] {subprocess.py:106} INFO - 	io.delta#delta-storage;3.2.0 from central in [default]
+[2026-08-05T21:26:02.066+0000] {subprocess.py:106} INFO - 	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2026-08-05T21:26:02.067+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:26:02.068+0000] {subprocess.py:106} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-08-05T21:26:02.069+0000] {subprocess.py:106} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-08-05T21:26:02.070+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:26:02.072+0000] {subprocess.py:106} INFO - 	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2026-08-05T21:26:02.073+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:26:02.074+0000] {subprocess.py:106} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-33b89445-fec6-418c-9370-ecb76aa78052
+[2026-08-05T21:26:02.075+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:26:02.077+0000] {subprocess.py:106} INFO - 	0 artifacts copied, 3 already retrieved (0kB/8ms)
+[2026-08-05T21:26:02.252+0000] {subprocess.py:106} INFO - 26/08/05 21:26:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-05T21:26:02.438+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2026-08-05T21:26:02.439+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-05T21:26:17.481+0000] {subprocess.py:106} INFO - [Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 2:>                                                          (0 + 1) / 1]                                                                                [Stage 6:>                                                         (0 + 2) / 50][Stage 6:======>                                                   (6 + 2) / 50][Stage 6:=============>                                           (12 + 2) / 50][Stage 6:===================>                                     (17 + 2) / 50][Stage 6:=========================>                               (22 + 2) / 50][Stage 6:=============================>                           (26 + 2) / 50][Stage 6:====================================>                    (32 + 2) / 50][Stage 6:===========================================>             (38 + 2) / 50][Stage 6:====================================================>    (46 + 2) / 50]                                                                                [BRONZE] appended 5000 rows from 1 landing file(s); bronze now holds 24000 rows
+[2026-08-05T21:26:17.985+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T21:26:18.010+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T21:26:18.012+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=bronze_ingest, run_id=manual__2026-08-05T21:25:33+00:00, execution_date=20260805T212533, start_date=20260805T212558, end_date=20260805T212618
+[2026-08-05T21:26:18.065+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T21:26:18.084+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T21:26:18.096+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

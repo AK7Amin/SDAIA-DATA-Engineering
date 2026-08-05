@@ -1,0 +1,104 @@
+[2026-08-05T20:51:58.718+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T20:51:58.728+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.bronze_ingest manual__2026-08-05T20:51:33+00:00 [queued]>
+[2026-08-05T20:51:58.735+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.bronze_ingest manual__2026-08-05T20:51:33+00:00 [queued]>
+[2026-08-05T20:51:58.736+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T20:51:58.754+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): bronze_ingest> on 2026-08-05 20:51:33+00:00
+[2026-08-05T20:51:58.759+0000] {standard_task_runner.py:72} INFO - Started process 274 to run task
+[2026-08-05T20:51:58.761+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'bronze_ingest', 'manual__2026-08-05T20:51:33+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmp0g6j4amj']
+[2026-08-05T20:51:58.764+0000] {standard_task_runner.py:105} INFO - Job 5: Subtask bronze_ingest
+[2026-08-05T20:51:58.821+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.bronze_ingest manual__2026-08-05T20:51:33+00:00 [running]> on host 464d4962317f
+[2026-08-05T20:51:58.874+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='bronze_ingest' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T20:51:33+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T20:51:33+00:00'
+[2026-08-05T20:51:58.875+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T20:51:58.887+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T20:51:58.888+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/bronze.py']
+[2026-08-05T20:51:58.896+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T20:52:00.172+0000] {subprocess.py:106} INFO - Traceback (most recent call last):
+[2026-08-05T20:52:00.173+0000] {subprocess.py:106} INFO -   File "/opt/capstone/src/bronze.py", line 35, in <module>
+[2026-08-05T20:52:00.174+0000] {subprocess.py:106} INFO -     with stage("bronze_ingest"):
+[2026-08-05T20:52:00.174+0000] {subprocess.py:106} INFO -          ^^^^^^^^^^^^^^^^^^^^^^
+[2026-08-05T20:52:00.175+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/contextlib.py", line 137, in __enter__
+[2026-08-05T20:52:00.175+0000] {subprocess.py:106} INFO -     return next(self.gen)
+[2026-08-05T20:52:00.176+0000] {subprocess.py:106} INFO -            ^^^^^^^^^^^^^^
+[2026-08-05T20:52:00.176+0000] {subprocess.py:106} INFO -   File "/opt/capstone/src/lineage.py", line 101, in stage
+[2026-08-05T20:52:00.177+0000] {subprocess.py:106} INFO -     emit(job_name, "START")
+[2026-08-05T20:52:00.177+0000] {subprocess.py:106} INFO -   File "/opt/capstone/src/lineage.py", line 79, in emit
+[2026-08-05T20:52:00.178+0000] {subprocess.py:106} INFO -     run=Run(runId=get_run_id()),
+[2026-08-05T20:52:00.178+0000] {subprocess.py:106} INFO -         ^^^^^^^^^^^^^^^^^^^^^^^
+[2026-08-05T20:52:00.179+0000] {subprocess.py:106} INFO -   File "<attrs generated methods openlineage.client.generated.base.Run>", line 31, in __init__
+[2026-08-05T20:52:00.179+0000] {subprocess.py:106} INFO -   File "/opt/venvs/compute/lib/python3.12/site-packages/openlineage/client/generated/base.py", line 292, in runid_check
+[2026-08-05T20:52:00.180+0000] {subprocess.py:106} INFO -     UUID(value)
+[2026-08-05T20:52:00.180+0000] {subprocess.py:106} INFO -   File "/usr/local/lib/python3.12/uuid.py", line 178, in __init__
+[2026-08-05T20:52:00.181+0000] {subprocess.py:106} INFO -     raise ValueError('badly formed hexadecimal UUID string')
+[2026-08-05T20:52:00.181+0000] {subprocess.py:106} INFO - ValueError: badly formed hexadecimal UUID string
+[2026-08-05T20:52:00.225+0000] {subprocess.py:110} INFO - Command exited with return code 1
+[2026-08-05T20:52:00.230+0000] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-08-05T20:52:00.234+0000] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=capstone_pipeline, task_id=bronze_ingest, run_id=manual__2026-08-05T20:51:33+00:00, execution_date=20260805T205133, start_date=20260805T205158, end_date=20260805T205200
+[2026-08-05T20:52:00.259+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T20:52:00.261+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 5 for task bronze_ingest (Bash command failed. The command returned a non-zero exit code 1.; 274)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3006, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 274, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3161, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3185, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 276, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-08-05T20:52:00.308+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2026-08-05T20:52:00.321+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T20:52:00.333+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,23 @@
+[2026-08-05T21:19:19.632+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T21:19:19.643+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.produce_to_kafka manual__2026-08-05T21:19:15+00:00 [queued]>
+[2026-08-05T21:19:19.652+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.produce_to_kafka manual__2026-08-05T21:19:15+00:00 [queued]>
+[2026-08-05T21:19:19.654+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T21:19:19.678+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): produce_to_kafka> on 2026-08-05 21:19:15+00:00
+[2026-08-05T21:19:19.690+0000] {standard_task_runner.py:72} INFO - Started process 4898 to run task
+[2026-08-05T21:19:19.696+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'produce_to_kafka', 'manual__2026-08-05T21:19:15+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpfxohih6b']
+[2026-08-05T21:19:19.699+0000] {standard_task_runner.py:105} INFO - Job 21: Subtask produce_to_kafka
+[2026-08-05T21:19:19.773+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.produce_to_kafka manual__2026-08-05T21:19:15+00:00 [running]> on host 464d4962317f
+[2026-08-05T21:19:19.850+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='produce_to_kafka' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T21:19:15+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T21:19:15+00:00'
+[2026-08-05T21:19:19.852+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T21:19:19.873+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T21:19:19.876+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/producer.py --batch B --inject-malformed 0']
+[2026-08-05T21:19:19.889+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T21:19:20.656+0000] {subprocess.py:106} INFO - /opt/capstone/src/producer.py:78: DeprecationWarning: value_serializer does not implement kafka.serializer.Serializer
+[2026-08-05T21:19:20.657+0000] {subprocess.py:106} INFO -   main()
+[2026-08-05T21:19:21.309+0000] {subprocess.py:106} INFO - [PRODUCER] batch B: sent 4000 events (0 malformed) to 'retail_transactions' @ kafka:9092
+[2026-08-05T21:19:21.345+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T21:19:21.377+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T21:19:21.380+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=produce_to_kafka, run_id=manual__2026-08-05T21:19:15+00:00, execution_date=20260805T211915, start_date=20260805T211919, end_date=20260805T211921
+[2026-08-05T21:19:21.437+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T21:19:21.471+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T21:19:21.484+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

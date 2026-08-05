@@ -1,0 +1,150 @@
+{
+  "success": false,
+  "statistics": {
+    "evaluated_validations": 1,
+    "success_percent": 0.0,
+    "successful_validations": 0,
+    "unsuccessful_validations": 1
+  },
+  "validation_results": [
+    {
+      "success": false,
+      "statistics": {
+        "evaluated_expectations": 2,
+        "successful_expectations": 1,
+        "unsuccessful_expectations": 1,
+        "success_percent": 50.0
+      },
+      "expectations": [
+        {
+          "expectation_type": "expect_compound_columns_to_be_unique",
+          "success": false,
+          "kwargs": {
+            "batch_id": "pandas_silver-silver_table",
+            "column_list": [
+              "InvoiceNo",
+              "StockCode"
+            ]
+          },
+          "result": {
+            "element_count": 6785,
+            "unexpected_count": 10,
+            "unexpected_percent": 0.14738393515106854,
+            "partial_unexpected_list": [
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "21730"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "22752"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "71053"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "84029E"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "84029G"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "21730"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "22752"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "71053"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "84029E"
+              },
+              {
+                "InvoiceNo": "536365",
+                "StockCode": "84029G"
+              }
+            ],
+            "missing_count": 0,
+            "missing_percent": 0.0,
+            "unexpected_percent_total": 0.14738393515106854,
+            "unexpected_percent_nonmissing": 0.14738393515106854,
+            "partial_unexpected_counts": [
+              {
+                "value": [
+                  "536365",
+                  "21730"
+                ],
+                "count": 2
+              },
+              {
+                "value": [
+                  "536365",
+                  "22752"
+                ],
+                "count": 2
+              },
+              {
+                "value": [
+                  "536365",
+                  "71053"
+                ],
+                "count": 2
+              },
+              {
+                "value": [
+                  "536365",
+                  "84029E"
+                ],
+                "count": 2
+              },
+              {
+                "value": [
+                  "536365",
+                  "84029G"
+                ],
+                "count": 2
+              }
+            ],
+            "partial_unexpected_index_list": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              6780,
+              6781,
+              6782,
+              6783,
+              6784
+            ]
+          }
+        },
+        {
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "success": true,
+          "kwargs": {
+            "batch_id": "pandas_silver-silver_table",
+            "column": "invoice_ts"
+          },
+          "result": {
+            "element_count": 6785,
+            "unexpected_count": 0,
+            "unexpected_percent": 0.0,
+            "partial_unexpected_list": [],
+            "partial_unexpected_counts": [],
+            "partial_unexpected_index_list": []
+          }
+        }
+      ],
+      "result_url": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+[2026-08-05T21:22:11.723+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T21:22:11.738+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.build_rag_documents manual__2026-08-05T21:19:15+00:00 [queued]>
+[2026-08-05T21:22:11.746+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.build_rag_documents manual__2026-08-05T21:19:15+00:00 [queued]>
+[2026-08-05T21:22:11.748+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T21:22:11.769+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): build_rag_documents> on 2026-08-05 21:19:15+00:00
+[2026-08-05T21:22:11.776+0000] {standard_task_runner.py:72} INFO - Started process 6717 to run task
+[2026-08-05T21:22:11.779+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'build_rag_documents', 'manual__2026-08-05T21:19:15+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpwrlgiyep']
+[2026-08-05T21:22:11.783+0000] {standard_task_runner.py:105} INFO - Job 29: Subtask build_rag_documents
+[2026-08-05T21:22:11.856+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.build_rag_documents manual__2026-08-05T21:19:15+00:00 [running]> on host 464d4962317f
+[2026-08-05T21:22:11.934+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='build_rag_documents' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T21:19:15+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T21:19:15+00:00'
+[2026-08-05T21:22:11.936+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T21:22:11.951+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T21:22:11.954+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/rag/docs_from_gold.py']
+[2026-08-05T21:22:11.965+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T21:22:14.649+0000] {subprocess.py:106} INFO - :: loading settings :: url = jar:file:/opt/venvs/compute/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-08-05T21:22:14.765+0000] {subprocess.py:106} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2026-08-05T21:22:14.767+0000] {subprocess.py:106} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2026-08-05T21:22:14.772+0000] {subprocess.py:106} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2026-08-05T21:22:14.774+0000] {subprocess.py:106} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-cae49ceb-2b7e-4061-8509-c6fdc51398e4;1.0
+[2026-08-05T21:22:14.775+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:22:14.929+0000] {subprocess.py:106} INFO - 	found io.delta#delta-spark_2.12;3.2.0 in central
+[2026-08-05T21:22:14.984+0000] {subprocess.py:106} INFO - 	found io.delta#delta-storage;3.2.0 in central
+[2026-08-05T21:22:15.025+0000] {subprocess.py:106} INFO - 	found org.antlr#antlr4-runtime;4.9.3 in central
+[2026-08-05T21:22:15.063+0000] {subprocess.py:106} INFO - :: resolution report :: resolve 275ms :: artifacts dl 15ms
+[2026-08-05T21:22:15.065+0000] {subprocess.py:106} INFO - 	:: modules in use:
+[2026-08-05T21:22:15.067+0000] {subprocess.py:106} INFO - 	io.delta#delta-spark_2.12;3.2.0 from central in [default]
+[2026-08-05T21:22:15.068+0000] {subprocess.py:106} INFO - 	io.delta#delta-storage;3.2.0 from central in [default]
+[2026-08-05T21:22:15.070+0000] {subprocess.py:106} INFO - 	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2026-08-05T21:22:15.072+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:22:15.075+0000] {subprocess.py:106} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-08-05T21:22:15.078+0000] {subprocess.py:106} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-08-05T21:22:15.079+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:22:15.081+0000] {subprocess.py:106} INFO - 	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2026-08-05T21:22:15.083+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:22:15.085+0000] {subprocess.py:106} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-cae49ceb-2b7e-4061-8509-c6fdc51398e4
+[2026-08-05T21:22:15.087+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:22:15.090+0000] {subprocess.py:106} INFO - 	0 artifacts copied, 3 already retrieved (0kB/10ms)
+[2026-08-05T21:22:15.382+0000] {subprocess.py:106} INFO - 26/08/05 21:22:15 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-05T21:22:15.721+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2026-08-05T21:22:15.724+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-05T21:22:24.062+0000] {subprocess.py:106} INFO - 26/08/05 21:22:24 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-08-05T21:22:33.471+0000] {subprocess.py:106} INFO - [Stage 3:>                                                         (0 + 2) / 50][Stage 3:==>                                                       (2 + 2) / 50][Stage 3:=====>                                                    (5 + 2) / 50][Stage 3:==========>                                               (9 + 2) / 50][Stage 3:===============>                                         (14 + 2) / 50][Stage 3:=====================>                                   (19 + 2) / 50][Stage 3:==========================>                              (23 + 2) / 50][Stage 3:===============================>                         (28 + 2) / 50][Stage 3:=====================================>                   (33 + 2) / 50][Stage 3:=============================================>           (40 + 2) / 50][Stage 3:===================================================>     (45 + 3) / 50]                                                                                [Stage 8:====================>                                    (18 + 2) / 50][Stage 8:=============================>                           (26 + 2) / 50][Stage 8:====================================>                    (32 + 3) / 50][Stage 8:==================================================>      (44 + 2) / 50]                                                                                [Stage 14:>                                                         (0 + 1) / 1]                                                                                [docs_from_gold] gold has 1791 products, capping to top 1000 by total_revenue
+[2026-08-05T21:22:33.473+0000] {subprocess.py:106} INFO - [docs_from_gold] wrote 1000 documents -> /opt/capstone/data/rag_docs.jsonl
+[2026-08-05T21:22:33.886+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T21:22:33.908+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T21:22:33.910+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=build_rag_documents, run_id=manual__2026-08-05T21:19:15+00:00, execution_date=20260805T211915, start_date=20260805T212211, end_date=20260805T212233
+[2026-08-05T21:22:33.973+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T21:22:33.987+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T21:22:33.998+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

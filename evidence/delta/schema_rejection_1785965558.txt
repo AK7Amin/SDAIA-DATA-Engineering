@@ -1,0 +1,17 @@
+Attempted append with undeclared column 'discount' -> REFUSED
+
+[_LEGACY_ERROR_TEMP_DELTA_0007] A schema mismatch detected when writing to the Delta table (Table ID: 8f3048a3-ad23-4201-bd84-dbb3869ebb17).
+To enable schema migration using DataFrameWriter or DataStreamWriter, please set:
+'.option("mergeSchema", "true")'.
+For other operations, set the session configuration
+spark.databricks.delta.schema.autoMerge.enabled to "true". See the documentation
+specific to the operation for details.
+
+Table schema:
+root
+-- InvoiceNo: string (nullable = true)
+-- StockCode: string (nullable = true)
+-- Quantity: long (nullable = true)
+-- line_revenue: double (nullable = true)
+-- invoice_ts: timestamp (nullable = true)
+-- Description: string (nullable = true)

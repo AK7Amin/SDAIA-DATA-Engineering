@@ -1,0 +1,76 @@
+{
+  "success": true,
+  "statistics": {
+    "evaluated_validations": 1,
+    "success_percent": 100.0,
+    "successful_validations": 1,
+    "unsuccessful_validations": 0
+  },
+  "validation_results": [
+    {
+      "success": true,
+      "statistics": {
+        "evaluated_expectations": 3,
+        "successful_expectations": 3,
+        "unsuccessful_expectations": 0,
+        "success_percent": 100.0
+      },
+      "expectations": [
+        {
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "success": true,
+          "kwargs": {
+            "batch_id": "pandas_bronze-bronze_table",
+            "column": "InvoiceNo"
+          },
+          "result": {
+            "element_count": 19000,
+            "unexpected_count": 0,
+            "unexpected_percent": 0.0,
+            "partial_unexpected_list": [],
+            "partial_unexpected_counts": [],
+            "partial_unexpected_index_list": []
+          }
+        },
+        {
+          "expectation_type": "expect_column_values_to_match_regex",
+          "success": true,
+          "kwargs": {
+            "batch_id": "pandas_bronze-bronze_table",
+            "column": "InvoiceNo",
+            "regex": "^[A-Za-z]?\\d{5,6}$"
+          },
+          "result": {
+            "element_count": 19000,
+            "unexpected_count": 0,
+            "unexpected_percent": 0.0,
+            "partial_unexpected_list": [],
+            "missing_count": 0,
+            "missing_percent": 0.0,
+            "unexpected_percent_total": 0.0,
+            "unexpected_percent_nonmissing": 0.0,
+            "partial_unexpected_counts": [],
+            "partial_unexpected_index_list": []
+          }
+        },
+        {
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "success": true,
+          "kwargs": {
+            "batch_id": "pandas_bronze-bronze_table",
+            "column": "StockCode"
+          },
+          "result": {
+            "element_count": 19000,
+            "unexpected_count": 0,
+            "unexpected_percent": 0.0,
+            "partial_unexpected_list": [],
+            "partial_unexpected_counts": [],
+            "partial_unexpected_index_list": []
+          }
+        }
+      ],
+      "result_url": null
+    }
+  ]
+}
