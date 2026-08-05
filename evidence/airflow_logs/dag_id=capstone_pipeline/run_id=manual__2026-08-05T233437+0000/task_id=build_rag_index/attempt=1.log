@@ -1,0 +1,28 @@
+[2026-08-05T23:37:51.782+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T23:37:51.796+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.build_rag_index manual__2026-08-05T23:34:37+00:00 [queued]>
+[2026-08-05T23:37:51.803+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.build_rag_index manual__2026-08-05T23:34:37+00:00 [queued]>
+[2026-08-05T23:37:51.806+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T23:37:51.825+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): build_rag_index> on 2026-08-05 23:34:37+00:00
+[2026-08-05T23:37:51.831+0000] {standard_task_runner.py:72} INFO - Started process 12300 to run task
+[2026-08-05T23:37:51.834+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'build_rag_index', 'manual__2026-08-05T23:34:37+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpv3ypn2cv']
+[2026-08-05T23:37:51.837+0000] {standard_task_runner.py:105} INFO - Job 48: Subtask build_rag_index
+[2026-08-05T23:37:51.895+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.build_rag_index manual__2026-08-05T23:34:37+00:00 [running]> on host 464d4962317f
+[2026-08-05T23:37:51.956+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='build_rag_index' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T23:34:37+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T23:34:37+00:00'
+[2026-08-05T23:37:51.958+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T23:37:51.972+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T23:37:51.974+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/rag/build_index.py']
+[2026-08-05T23:37:51.985+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T23:38:06.134+0000] {subprocess.py:106} INFO - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2026-08-05T23:38:07.528+0000] {subprocess.py:106} INFO - [build_index] 1000 documents -> 6013 chunks
+[2026-08-05T23:38:07.530+0000] {subprocess.py:106} INFO - [build_index] example doc '22423' split into 7 chunks (multi-sentence source -> multiple chunks)
+[2026-08-05T23:38:07.578+0000] {subprocess.py:106} INFO - Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2089.40it/s]
+[2026-08-05T23:39:07.779+0000] {subprocess.py:106} INFO - [INDEX] embedded+stored chunks 0..4999
+[2026-08-05T23:39:07.782+0000] {subprocess.py:106} INFO - [INDEX] embedded+stored chunks 5000..6012
+[2026-08-05T23:39:07.783+0000] {subprocess.py:106} INFO - [build_index] Chroma collection 'rag_capstone_chunks' rebuilt at /opt/capstone/data/chroma (6013 chunks, all-MiniLM-L6-v2 embeddings)
+[2026-08-05T23:39:07.784+0000] {subprocess.py:106} INFO - [build_index] BM25 index pickled -> /opt/capstone/data/bm25.pkl
+[2026-08-05T23:39:08.628+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T23:39:08.652+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T23:39:08.654+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=build_rag_index, run_id=manual__2026-08-05T23:34:37+00:00, execution_date=20260805T233437, start_date=20260805T233751, end_date=20260805T233908
+[2026-08-05T23:39:08.694+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T23:39:08.705+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T23:39:08.707+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

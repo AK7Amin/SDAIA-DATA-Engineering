@@ -1,0 +1,50 @@
+[2026-08-05T21:33:14.601+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T21:33:14.613+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: reset_demo_state.delete_injected_rows manual__2026-08-05T21:33:10+00:00 [queued]>
+[2026-08-05T21:33:14.620+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: reset_demo_state.delete_injected_rows manual__2026-08-05T21:33:10+00:00 [queued]>
+[2026-08-05T21:33:14.622+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T21:33:14.647+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): delete_injected_rows> on 2026-08-05 21:33:10+00:00
+[2026-08-05T21:33:14.654+0000] {standard_task_runner.py:72} INFO - Started process 9574 to run task
+[2026-08-05T21:33:14.658+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'reset_demo_state', 'delete_injected_rows', 'manual__2026-08-05T21:33:10+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpr2wg4hdb']
+[2026-08-05T21:33:14.661+0000] {standard_task_runner.py:105} INFO - Job 38: Subtask delete_injected_rows
+[2026-08-05T21:33:14.738+0000] {task_command.py:467} INFO - Running <TaskInstance: reset_demo_state.delete_injected_rows manual__2026-08-05T21:33:10+00:00 [running]> on host 464d4962317f
+[2026-08-05T21:33:14.804+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='reset_demo_state' AIRFLOW_CTX_TASK_ID='delete_injected_rows' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T21:33:10+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T21:33:10+00:00'
+[2026-08-05T21:33:14.806+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T21:33:14.821+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T21:33:14.823+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/reset_demo.py']
+[2026-08-05T21:33:14.832+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T21:33:17.409+0000] {subprocess.py:106} INFO - :: loading settings :: url = jar:file:/opt/venvs/compute/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-08-05T21:33:17.487+0000] {subprocess.py:106} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2026-08-05T21:33:17.488+0000] {subprocess.py:106} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2026-08-05T21:33:17.492+0000] {subprocess.py:106} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2026-08-05T21:33:17.493+0000] {subprocess.py:106} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-3c98d285-ca4d-408d-93f3-3fd2c123169f;1.0
+[2026-08-05T21:33:17.495+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:33:17.605+0000] {subprocess.py:106} INFO - 	found io.delta#delta-spark_2.12;3.2.0 in central
+[2026-08-05T21:33:17.633+0000] {subprocess.py:106} INFO - 	found io.delta#delta-storage;3.2.0 in central
+[2026-08-05T21:33:17.657+0000] {subprocess.py:106} INFO - 	found org.antlr#antlr4-runtime;4.9.3 in central
+[2026-08-05T21:33:17.677+0000] {subprocess.py:106} INFO - :: resolution report :: resolve 176ms :: artifacts dl 8ms
+[2026-08-05T21:33:17.679+0000] {subprocess.py:106} INFO - 	:: modules in use:
+[2026-08-05T21:33:17.680+0000] {subprocess.py:106} INFO - 	io.delta#delta-spark_2.12;3.2.0 from central in [default]
+[2026-08-05T21:33:17.681+0000] {subprocess.py:106} INFO - 	io.delta#delta-storage;3.2.0 from central in [default]
+[2026-08-05T21:33:17.682+0000] {subprocess.py:106} INFO - 	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2026-08-05T21:33:17.683+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:33:17.683+0000] {subprocess.py:106} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-08-05T21:33:17.684+0000] {subprocess.py:106} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-08-05T21:33:17.686+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:33:17.687+0000] {subprocess.py:106} INFO - 	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2026-08-05T21:33:17.688+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T21:33:17.689+0000] {subprocess.py:106} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-3c98d285-ca4d-408d-93f3-3fd2c123169f
+[2026-08-05T21:33:17.690+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T21:33:17.691+0000] {subprocess.py:106} INFO - 	0 artifacts copied, 3 already retrieved (0kB/5ms)
+[2026-08-05T21:33:17.851+0000] {subprocess.py:106} INFO - 26/08/05 21:33:17 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-05T21:33:18.023+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2026-08-05T21:33:18.024+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-05T21:33:26.385+0000] {subprocess.py:106} INFO - 26/08/05 21:33:26 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-08-05T21:33:37.203+0000] {subprocess.py:106} INFO - [Stage 3:==>                                                       (2 + 2) / 50][Stage 3:========>                                                 (7 + 2) / 50][Stage 3:==============>                                          (13 + 2) / 50][Stage 3:======================>                                  (20 + 3) / 50][Stage 3:==============================>                          (27 + 2) / 50][Stage 3:==========================================>              (37 + 2) / 50][Stage 3:===================================================>     (45 + 2) / 50]                                                                                [Stage 9:=============================>                             (1 + 1) / 2]                                                                                [Stage 26:===============================================>        (42 + 2) / 50]                                                                                [RESET] silver rows before: 6,785 total, 5 injected
+[2026-08-05T21:33:37.204+0000] {subprocess.py:106} INFO - [RESET] silver rows after:  6,780 total
+[2026-08-05T21:33:37.205+0000] {subprocess.py:106} INFO - [RESET] removed 5 injected row(s) -> clean state restored
+[2026-08-05T21:33:37.689+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T21:33:37.713+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T21:33:37.714+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=reset_demo_state, task_id=delete_injected_rows, run_id=manual__2026-08-05T21:33:10+00:00, execution_date=20260805T213310, start_date=20260805T213314, end_date=20260805T213337
+[2026-08-05T21:33:37.788+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T21:33:37.798+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T21:33:37.800+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,53 @@
+[2026-08-05T23:35:34.101+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T23:35:34.117+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.ge_gate_bronze manual__2026-08-05T23:34:37+00:00 [queued]>
+[2026-08-05T23:35:34.127+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.ge_gate_bronze manual__2026-08-05T23:34:37+00:00 [queued]>
+[2026-08-05T23:35:34.128+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T23:35:34.154+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): ge_gate_bronze> on 2026-08-05 23:34:37+00:00
+[2026-08-05T23:35:34.162+0000] {standard_task_runner.py:72} INFO - Started process 10561 to run task
+[2026-08-05T23:35:34.174+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'ge_gate_bronze', 'manual__2026-08-05T23:34:37+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmphtfnk9o8']
+[2026-08-05T23:35:34.184+0000] {standard_task_runner.py:105} INFO - Job 42: Subtask ge_gate_bronze
+[2026-08-05T23:35:34.261+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.ge_gate_bronze manual__2026-08-05T23:34:37+00:00 [running]> on host 464d4962317f
+[2026-08-05T23:35:34.344+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='ge_gate_bronze' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T23:34:37+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T23:34:37+00:00'
+[2026-08-05T23:35:34.346+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T23:35:34.364+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T23:35:34.366+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/ge_gate.py --layer bronze']
+[2026-08-05T23:35:34.377+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T23:35:41.814+0000] {subprocess.py:106} INFO - :: loading settings :: url = jar:file:/opt/venvs/compute/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-08-05T23:35:41.879+0000] {subprocess.py:106} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2026-08-05T23:35:41.880+0000] {subprocess.py:106} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2026-08-05T23:35:41.883+0000] {subprocess.py:106} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2026-08-05T23:35:41.884+0000] {subprocess.py:106} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-dbea99db-a43c-4f2d-b5d0-0ca1ed43e917;1.0
+[2026-08-05T23:35:41.886+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T23:35:41.992+0000] {subprocess.py:106} INFO - 	found io.delta#delta-spark_2.12;3.2.0 in central
+[2026-08-05T23:35:42.021+0000] {subprocess.py:106} INFO - 	found io.delta#delta-storage;3.2.0 in central
+[2026-08-05T23:35:42.043+0000] {subprocess.py:106} INFO - 	found org.antlr#antlr4-runtime;4.9.3 in central
+[2026-08-05T23:35:42.063+0000] {subprocess.py:106} INFO - :: resolution report :: resolve 172ms :: artifacts dl 7ms
+[2026-08-05T23:35:42.065+0000] {subprocess.py:106} INFO - 	:: modules in use:
+[2026-08-05T23:35:42.066+0000] {subprocess.py:106} INFO - 	io.delta#delta-spark_2.12;3.2.0 from central in [default]
+[2026-08-05T23:35:42.067+0000] {subprocess.py:106} INFO - 	io.delta#delta-storage;3.2.0 from central in [default]
+[2026-08-05T23:35:42.068+0000] {subprocess.py:106} INFO - 	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2026-08-05T23:35:42.069+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T23:35:42.070+0000] {subprocess.py:106} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-08-05T23:35:42.071+0000] {subprocess.py:106} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-08-05T23:35:42.072+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T23:35:42.073+0000] {subprocess.py:106} INFO - 	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2026-08-05T23:35:42.074+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T23:35:42.075+0000] {subprocess.py:106} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-dbea99db-a43c-4f2d-b5d0-0ca1ed43e917
+[2026-08-05T23:35:42.076+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T23:35:42.077+0000] {subprocess.py:106} INFO - 	0 artifacts copied, 3 already retrieved (0kB/6ms)
+[2026-08-05T23:35:42.217+0000] {subprocess.py:106} INFO - 26/08/05 23:35:42 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-05T23:35:42.402+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2026-08-05T23:35:42.404+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-05T23:35:49.541+0000] {subprocess.py:106} INFO - 26/08/05 23:35:49 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2026-08-05T23:35:56.437+0000] {subprocess.py:106} INFO - [Stage 3:>                                                         (0 + 2) / 50][Stage 3:==>                                                       (2 + 2) / 50][Stage 3:=====>                                                    (5 + 2) / 50][Stage 3:==========>                                               (9 + 2) / 50][Stage 3:=================>                                       (15 + 2) / 50][Stage 3:=====================>                                   (19 + 3) / 50][Stage 3:============================>                            (25 + 2) / 50][Stage 3:===================================>                     (31 + 2) / 50][Stage 3:============================================>            (39 + 2) / 50][Stage 3:=====================================================>   (47 + 2) / 50]                                                                                [Stage 9:>                                                          (0 + 2) / 2][Stage 9:=============================>                             (1 + 1) / 2]                                                                                Calculating Metrics:   0%|          | 0/18 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/18 [00:00<?, ?it/s]Calculating Metrics:  11%|█         | 2/18 [00:00<00:00, 4539.29it/s]Calculating Metrics:  11%|█         | 2/18 [00:00<00:00, 2532.79it/s]Calculating Metrics:  17%|█▋        | 3/18 [00:00<00:00, 3375.24it/s]Calculating Metrics:  17%|█▋        | 3/18 [00:00<00:00, 3114.58it/s]Calculating Metrics:  33%|███▎      | 6/18 [00:00<00:00, 617.31it/s] Calculating Metrics:  33%|███▎      | 6/18 [00:00<00:00, 609.43it/s]Calculating Metrics: 100%|██████████| 18/18 [00:00<00:00, 1125.45it/s]Calculating Metrics: 100%|██████████| 18/18 [00:00<00:00, 1116.58it/s]Calculating Metrics: 100%|██████████| 18/18 [00:00<00:00, 1113.43it/s]Calculating Metrics: 100%|██████████| 18/18 [00:00<00:00, 1108.63it/s]
+[2026-08-05T23:35:57.009+0000] {subprocess.py:106} INFO - [GE GATE] layer=bronze rows=29000 success=True
+[2026-08-05T23:35:57.011+0000] {subprocess.py:106} INFO -   [PASSED] expect_column_values_to_not_be_null
+[2026-08-05T23:35:57.012+0000] {subprocess.py:106} INFO -   [PASSED] expect_column_values_to_match_regex
+[2026-08-05T23:35:57.013+0000] {subprocess.py:106} INFO -   [PASSED] expect_column_values_to_not_be_null
+[2026-08-05T23:35:57.014+0000] {subprocess.py:106} INFO - [GE GATE] full result -> /opt/capstone/evidence/ge_lineage/checkpoint_bronze_pass_20260805T233556.json
+[2026-08-05T23:35:57.654+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T23:35:57.674+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T23:35:57.676+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=ge_gate_bronze, run_id=manual__2026-08-05T23:34:37+00:00, execution_date=20260805T233437, start_date=20260805T233534, end_date=20260805T233557
+[2026-08-05T23:35:57.711+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T23:35:57.724+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T23:35:57.747+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

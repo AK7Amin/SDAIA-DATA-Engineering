@@ -1,0 +1,59 @@
+[2026-08-05T23:36:58.084+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-05T23:36:58.096+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: capstone_pipeline.silver_to_gold manual__2026-08-05T23:34:37+00:00 [queued]>
+[2026-08-05T23:36:58.103+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: capstone_pipeline.silver_to_gold manual__2026-08-05T23:34:37+00:00 [queued]>
+[2026-08-05T23:36:58.105+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 1
+[2026-08-05T23:36:58.122+0000] {taskinstance.py:2890} INFO - Executing <Task(BashOperator): silver_to_gold> on 2026-08-05 23:34:37+00:00
+[2026-08-05T23:36:58.127+0000] {standard_task_runner.py:72} INFO - Started process 11597 to run task
+[2026-08-05T23:36:58.130+0000] {standard_task_runner.py:104} INFO - Running: ['airflow', 'tasks', 'run', 'capstone_pipeline', 'silver_to_gold', 'manual__2026-08-05T23:34:37+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/capstone_pipeline.py', '--cfg-path', '/tmp/tmpwwbilyw_']
+[2026-08-05T23:36:58.132+0000] {standard_task_runner.py:105} INFO - Job 46: Subtask silver_to_gold
+[2026-08-05T23:36:58.189+0000] {task_command.py:467} INFO - Running <TaskInstance: capstone_pipeline.silver_to_gold manual__2026-08-05T23:34:37+00:00 [running]> on host 464d4962317f
+[2026-08-05T23:36:58.250+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='capstone_pipeline' AIRFLOW_CTX_TASK_ID='silver_to_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-08-05T23:34:37+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-05T23:34:37+00:00'
+[2026-08-05T23:36:58.253+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2026-08-05T23:36:58.265+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2026-08-05T23:36:58.267+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/opt/venvs/compute/bin/python /opt/capstone/src/gold.py']
+[2026-08-05T23:36:58.274+0000] {subprocess.py:99} INFO - Output:
+[2026-08-05T23:37:00.856+0000] {subprocess.py:106} INFO - :: loading settings :: url = jar:file:/opt/venvs/compute/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2026-08-05T23:37:00.939+0000] {subprocess.py:106} INFO - Ivy Default Cache set to: /home/airflow/.ivy2/cache
+[2026-08-05T23:37:00.941+0000] {subprocess.py:106} INFO - The jars for the packages stored in: /home/airflow/.ivy2/jars
+[2026-08-05T23:37:00.943+0000] {subprocess.py:106} INFO - io.delta#delta-spark_2.12 added as a dependency
+[2026-08-05T23:37:00.945+0000] {subprocess.py:106} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-8e75e9cf-55bc-4036-8c4b-a19c71d10ab5;1.0
+[2026-08-05T23:37:00.946+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T23:37:01.070+0000] {subprocess.py:106} INFO - 	found io.delta#delta-spark_2.12;3.2.0 in central
+[2026-08-05T23:37:01.101+0000] {subprocess.py:106} INFO - 	found io.delta#delta-storage;3.2.0 in central
+[2026-08-05T23:37:01.125+0000] {subprocess.py:106} INFO - 	found org.antlr#antlr4-runtime;4.9.3 in central
+[2026-08-05T23:37:01.146+0000] {subprocess.py:106} INFO - :: resolution report :: resolve 194ms :: artifacts dl 8ms
+[2026-08-05T23:37:01.147+0000] {subprocess.py:106} INFO - 	:: modules in use:
+[2026-08-05T23:37:01.149+0000] {subprocess.py:106} INFO - 	io.delta#delta-spark_2.12;3.2.0 from central in [default]
+[2026-08-05T23:37:01.150+0000] {subprocess.py:106} INFO - 	io.delta#delta-storage;3.2.0 from central in [default]
+[2026-08-05T23:37:01.151+0000] {subprocess.py:106} INFO - 	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+[2026-08-05T23:37:01.152+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T23:37:01.154+0000] {subprocess.py:106} INFO - 	|                  |            modules            ||   artifacts   |
+[2026-08-05T23:37:01.155+0000] {subprocess.py:106} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2026-08-05T23:37:01.156+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T23:37:01.158+0000] {subprocess.py:106} INFO - 	|      default     |   3   |   0   |   0   |   0   ||   3   |   0   |
+[2026-08-05T23:37:01.159+0000] {subprocess.py:106} INFO - 	---------------------------------------------------------------------
+[2026-08-05T23:37:01.160+0000] {subprocess.py:106} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-8e75e9cf-55bc-4036-8c4b-a19c71d10ab5
+[2026-08-05T23:37:01.161+0000] {subprocess.py:106} INFO - 	confs: [default]
+[2026-08-05T23:37:01.162+0000] {subprocess.py:106} INFO - 	0 artifacts copied, 3 already retrieved (0kB/7ms)
+[2026-08-05T23:37:01.323+0000] {subprocess.py:106} INFO - 26/08/05 23:37:01 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-05T23:37:01.494+0000] {subprocess.py:106} INFO - Setting default log level to "WARN".
+[2026-08-05T23:37:01.495+0000] {subprocess.py:106} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-05T23:37:24.070+0000] {subprocess.py:106} INFO - [Stage 0:=============================>                             (1 + 1) / 2]                                                                                [Stage 3:>                                                         (0 + 2) / 50][Stage 3:===>                                                      (3 + 2) / 50][Stage 3:======>                                                   (6 + 2) / 50][Stage 3:===========>                                             (10 + 2) / 50][Stage 3:==============>                                          (13 + 2) / 50][Stage 3:===================>                                     (17 + 3) / 50][Stage 3:=============================>                           (26 + 2) / 50][Stage 3:=========================================>               (36 + 2) / 50][Stage 3:====================================================>    (46 + 2) / 50]                                                                                [Stage 4:>                                                          (0 + 1) / 1]                                                                                [Stage 13:======================>                                 (20 + 2) / 50][Stage 13:=================================>                      (30 + 2) / 50][Stage 13:===============================================>        (42 + 2) / 50]                                                                                [GOLD] wrote 1791 product aggregates (overwrite)
+[2026-08-05T23:37:24.073+0000] {subprocess.py:106} INFO - [GOLD] top 5 by revenue:
+[2026-08-05T23:37:24.076+0000] {subprocess.py:106} INFO - +------------+---------+----------------------------------+-------------+------------+--------------------+
+[2026-08-05T23:37:24.079+0000] {subprocess.py:106} INFO - |revenue_rank|StockCode|Description                       |total_revenue|num_invoices|top_countries       |
+[2026-08-05T23:37:24.082+0000] {subprocess.py:106} INFO - +------------+---------+----------------------------------+-------------+------------+--------------------+
+[2026-08-05T23:37:24.083+0000] {subprocess.py:106} INFO - |1           |22423    |REGENCY CAKESTAND 3 TIER          |6612.45      |30          |United Kingdom, EIRE|
+[2026-08-05T23:37:24.085+0000] {subprocess.py:106} INFO - |2           |84029E   |RED WOOLLY HOTTIE WHITE HEART.    |3077.88      |34          |United Kingdom      |
+[2026-08-05T23:37:24.086+0000] {subprocess.py:106} INFO - |3           |79321    |CHILLI LIGHTS                     |2374.48      |16          |United Kingdom, EIRE|
+[2026-08-05T23:37:24.088+0000] {subprocess.py:106} INFO - |4           |85123A   |WHITE HANGING HEART T-LIGHT HOLDER|2095.63      |41          |United Kingdom      |
+[2026-08-05T23:37:24.089+0000] {subprocess.py:106} INFO - |5           |21137    |BLACK RECORD COVER FRAME          |2078.43      |4           |United Kingdom      |
+[2026-08-05T23:37:24.090+0000] {subprocess.py:106} INFO - +------------+---------+----------------------------------+-------------+------------+--------------------+
+[2026-08-05T23:37:24.092+0000] {subprocess.py:106} INFO - only showing top 5 rows
+[2026-08-05T23:37:24.094+0000] {subprocess.py:106} INFO - 
+[2026-08-05T23:37:24.536+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2026-08-05T23:37:24.557+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2026-08-05T23:37:24.560+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=capstone_pipeline, task_id=silver_to_gold, run_id=manual__2026-08-05T23:34:37+00:00, execution_date=20260805T233437, start_date=20260805T233658, end_date=20260805T233724
+[2026-08-05T23:37:24.623+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2026-08-05T23:37:24.640+0000] {taskinstance.py:3901} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-08-05T23:37:24.653+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

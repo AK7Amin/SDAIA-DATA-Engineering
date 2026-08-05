@@ -1,14 +1,17 @@
-﻿[answer] query expanded for retrieval: What is the top product by revenue and how many invoices does it appear in? (the number one best-selling highest-revenue product, ranks 1 by total revenue)
+﻿[answer] query expanded for retrieval: Which product has the highest revenue in the catalog? (the number one best-selling highest-revenue product, ranks 1 by total revenue)
 
 [answer] stage-by-stage top-3 ids (each stage re-ranks the candidates):
 BM25                  Vector                RRF                   Rerank                
-22423_chunk_005       84952C_chunk_005      22423_chunk_005       22423_chunk_005       
-22423_chunk_006       22423_chunk_006       22423_chunk_006       21137_chunk_005       
-79321_chunk_005       22423_chunk_005       22752_chunk_005       21915_chunk_005       
+22423_chunk_005       22423_chunk_006       22423_chunk_006       22423_chunk_005       
+22423_chunk_006       22423_chunk_005       22423_chunk_005       22423_chunk_006       
+21915_chunk_006       84952C_chunk_005      22752_chunk_005       22752_chunk_005       
 
-Question: What is the top product by revenue and how many invoices does it appear in?
+Question: Which product has the highest revenue in the catalog?
 
 Answer:
-[REGENCY CAKESTAND 3 TIER] It ranks 1 out of 1581 products by total revenue. It is the top product by revenue: the number one best-selling, highest-revenue product in the entire catalog. [Source 1] [BLACK RECORD COVER FRAME] It ranks 3 out of 1581 products by total revenue. It is one of the top 10 best-selling products by revenue (number 3). [Source 2] [RED  HARMONICA IN BOX] It ranks 6 out of 1581 products by total revenue. It is one of the top 10 best-selling products by revenue (number 6). [Source 3]
+[REGENCY CAKESTAND 3 TIER] It ranks 1 out of 1791 products by total revenue. It is the top product by revenue: the number one best-selling, highest-revenue product in the entire catalog. [Source 1] [REGENCY CAKESTAND 3 TIER] It is the top product by revenue: the number one best-selling, highest-revenue product in the entire catalog. [Source 2] [SET 7 BABUSHKA NESTING BOXES] It ranks 7 out of 1791 products by total revenue. It is one of the top 10 best-selling products by revenue (number 7). [Source 3]
 
 Sources:
+  [Source 1] chunk_id=22423_chunk_005 doc_id=22423 text="[REGENCY CAKESTAND 3 TIER] It ranks 1 out of 1791 products by total revenue. It is the top product by revenue: the number one best-selling, highest-revenue product in the entire catalog."
+  [Source 2] chunk_id=22423_chunk_006 doc_id=22423 text="[REGENCY CAKESTAND 3 TIER] It is the top product by revenue: the number one best-selling, highest-revenue product in the entire catalog."
+  [Source 3] chunk_id=22752_chunk_005 doc_id=22752 text="[SET 7 BABUSHKA NESTING BOXES] It ranks 7 out of 1791 products by total revenue. It is one of the top 10 best-selling products by revenue (number 7)."
