@@ -13,6 +13,10 @@
 
 ## 🎬 Demo — the pipeline in action
 
+🎥 **[Short demo video (35s)](docs/demo_short.mp4)** — the Airflow grid across all four
+runs, the graph views, and the halted failure run ·
+**[Full walkthrough (5:20)](docs/demo_walkthrough.mp4)**
+
 ![Pipeline demo: clean run, halted failure run, and full run history](docs/pipeline_demo.gif)
 
 **The two moments that matter** — a fully green clean run, and the deliberate-failure
