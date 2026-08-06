@@ -168,10 +168,12 @@ UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
 
 ## 👥 Team
 
-- Abdulaziz Mulia — عبدالعزيز بن خالد مليا
-- Saif Abukhamis — سيف بن نايف أبوخميس
-- Feras Al-Harbi — فراس بن محمد الحربي
-- Faisal Al-Abdul-Jabbar — فيصل بن عبدالله العبدالجبار
+| Member | GitHub |
+|---|---|
+| Abdulaziz Mulia — عبدالعزيز بن خالد مليا | [@AK7Amin](https://github.com/AK7Amin) |
+| Saif Abukhamis — سيف بن نايف أبوخميس | [@saifabokhamees1-cmyk](https://github.com/saifabokhamees1-cmyk) |
+| Feras Al-Harbi — فراس بن محمد الحربي | [@feras17009-stack](https://github.com/feras17009-stack) |
+| Faisal Al-Abdul-Jabbar — فيصل بن عبدالله العبدالجبار | [@7luc](https://github.com/7luc) |
 
 ## 🎓 Training program attribution
 
