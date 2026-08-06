@@ -40,16 +40,18 @@ OpenLineage UUID issue, fixed in commit `62c1417`), two fully green runs
 **A real answer with citations** (extractive, grounded in retrieved chunks):
 
 ```text
-Q: What is the top product by revenue and how many invoices does it appear in?
+Q: Which product has the highest revenue in the catalog?
 
 BM25              Vector            RRF               Rerank
-22423_chunk_005   84952C_chunk_005  22423_chunk_005   22423_chunk_005   <- each stage re-ranks
+22423_chunk_005   22423_chunk_006   22423_chunk_006   22423_chunk_005   <- each stage re-ranks
+22423_chunk_006   22423_chunk_005   22423_chunk_005   22423_chunk_006
+21915_chunk_006   84952C_chunk_005  22752_chunk_005   22752_chunk_005
 
-A: [REGENCY CAKESTAND 3 TIER] It ranks 1 out of 1581 products by total revenue.
+A: [REGENCY CAKESTAND 3 TIER] It ranks 1 out of 1791 products by total revenue.
    It is the top product by revenue: the number one best-selling,
    highest-revenue product in the entire catalog. [Source 1] ...
 
-Sources: [Source 1] chunk_id=22423_chunk_005 doc_id=22423 ...
+Sources: [Source 1] chunk_id=22423_chunk_005 doc_id=22423 ...   (full log: evidence/rag/)
 ```
 
 ## 📋 Deliverables and their evidence (executed runs, not just code)
