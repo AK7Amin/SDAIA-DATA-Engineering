@@ -18,7 +18,8 @@
 
 🎥 **[Short demo video (35s)](docs/demo_short.mp4)** — the Airflow grid across all four
 runs, the graph views, and the halted failure run ·
-**[Full walkthrough (2:32, 2x speed)](docs/demo_walkthrough.mp4)**
+**[Full walkthrough (1:52, 1.5x speed)](docs/demo_walkthrough.mp4)** — ends inside the
+failed gate's log: `expect_compound_columns_to_be_unique FAILED` → exit 1 → downstream halted
 
 ![Pipeline demo: clean run, halted failure run, and full run history](docs/pipeline_demo.gif)
 
