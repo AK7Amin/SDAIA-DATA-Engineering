@@ -16,10 +16,6 @@
 
 
 
-https://github.com/user-attachments/assets/6c0cb258-fd1b-4bf2-ad0d-8a395cb4d478
-
-
-
 🎥 **[Short demo video (35s)](docs/demo_short.mp4)** — the Airflow grid across all four
 runs, the graph views, and the halted failure run ·
 **[Full walkthrough (2:32, 2x speed)](docs/demo_walkthrough.mp4)**
