@@ -1,0 +1,18 @@
+{
+  "name": "slidev-deck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@slidev/cli": "^52.19.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "playwright-chromium": "^1.62.1"
+  }
+}

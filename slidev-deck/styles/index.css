@@ -1,0 +1,103 @@
+/* Global styles — must live here, NOT in a slide's <style> block
+   (a slide-level <style> is scoped to that slide only). */
+
+:root {
+  --navy: #273470;
+  --navy-deep: #1b2350;
+  --teal: #0e8a8a;
+  --mint: #33cc99;
+  --violet: #6258a6;
+  --amber: #fbbf24;
+  --ink: #eef1fb;
+  --muted: #a8b2d8;
+}
+
+/* every layout, including the theme's cover/intro/center variants, which
+   otherwise fall back to the theme's own (missing) background image */
+.slidev-layout,
+.slidev-layout.cover,
+.slidev-layout.intro,
+.slidev-layout.center,
+.slidev-layout.image {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  background-color: var(--navy);
+  color: var(--ink);
+  padding: 2.2rem 3rem;
+  font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
+}
+
+/* the cover slide's title should read as the brand accent, not plain white */
+.slidev-layout.cover h1 { color: var(--mint); }
+
+.slidev-layout h1 {
+  color: var(--mint);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1.35;
+  margin-bottom: 1.2rem;
+}
+
+.slidev-layout h2 {
+  color: #7dd3c8;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* code blocks: keep them dark and readable on the navy background */
+.slidev-layout pre,
+.slidev-layout .shiki-container {
+  background: #0f1735 !important;
+  border: 1px solid #ffffff1a;
+  border-radius: 10px;
+  font-size: 0.92rem;
+}
+.slidev-layout code { font-family: "Fira Code", Consolas, monospace; }
+
+/* tables */
+.slidev-layout table { width: 100%; border-collapse: collapse; }
+.slidev-layout th {
+  color: var(--mint);
+  text-align: left;
+  border-bottom: 1px solid #ffffff33;
+  padding: 0.4rem 0.6rem;
+}
+.slidev-layout td {
+  padding: 0.35rem 0.6rem;
+  border-bottom: 1px solid #ffffff12;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+}
+
+/* Arabic runs: correct direction wherever they appear */
+.ar {
+  direction: rtl;
+  text-align: right;
+  font-family: "Cairo", "Segoe UI", Tahoma, sans-serif;
+}
+.ar-inline { direction: rtl; unicode-bidi: isolate; }
+
+/* stat cards */
+.stat {
+  background: #ffffff10;
+  border: 1px solid #33cc9944;
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+.stat b {
+  color: var(--amber);
+  font-size: 1.8rem;
+  display: block;
+  line-height: 1.2;
+  font-family: "Fira Code", monospace;
+}
+.stat span { color: var(--muted); font-size: 0.85rem; }
+
+/* mermaid diagrams sit on light plates — give them a readable frame */
+.slidev-layout .mermaid {
+  background: #ffffffea;
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.note { color: var(--muted); font-size: 0.9rem; }

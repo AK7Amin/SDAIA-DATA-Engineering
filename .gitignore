@@ -22,3 +22,7 @@ standalone_admin_password.txt
 # ...except Airflow's internal chatter (scheduler heartbeats, parser logs)
 evidence/airflow_logs/scheduler/
 evidence/airflow_logs/dag_processor_manager/
+node_modules/
+slidev-deck/node_modules/
+slidev-deck/export/
+slidev-deck/.slidev/
