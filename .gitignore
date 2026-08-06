@@ -1,3 +1,6 @@
+# Office lock files (created while a document is open)
+~$*
+
 # secrets — never committed (Vibe Coding rule)
 .env
 kaggle.json
