@@ -89,6 +89,31 @@ OpenLineage: START / COMPLETE / FAIL per stage, unified runId          (failed g
 
 Details: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · Requirements & acceptance criteria: [`docs/PRD.md`](docs/PRD.md)
 
+## 📂 Repository structure
+
+```
+├── dags/
+│   └── capstone_pipeline.py      # the Airflow DAG (10 tasks) + reset_demo_state DAG
+├── src/                          # pipeline stages, called by the DAG via BashOperator
+│   ├── producer.py               #   CSV rows -> Kafka events (batch A/B, malformed injection)
+│   ├── consumer.py               #   Kafka -> Pydantic contract gate -> landing / DLQ
+│   ├── contracts.py              #   the data contract (structural checks only)
+│   ├── bronze.py / silver.py / gold.py   # the Delta medallion layers (MERGE lives in silver)
+│   ├── ge_gate.py                #   Great Expectations checkpoints (exit 1 = pipeline halts)
+│   ├── lineage.py                #   OpenLineage START/COMPLETE/FAIL per stage
+│   ├── inject_corruption.py / reset_demo.py / schema_demo.py   # failure-path demos
+│   └── rag/                      #   docs_from_gold -> build_index -> answer (citations)
+├── tests/                        # 23 unit tests (contract, chunking, RRF)
+├── docker/ + docker-compose.yml  # Kafka (KRaft) + Airflow with isolated compute venv
+├── docs/
+│   ├── presentation.pptx         # ★ the capstone defense deck (11 slides)
+│   ├── demo_short.mp4 / demo_walkthrough.mp4 / pipeline_demo.gif
+│   ├── PRD.md / ARCHITECTURE.md  # requirements + technical documentation
+├── evidence/                     # ★ executed-run proof for every rubric deliverable
+│   ├── ingestion/  delta/  rag/  airflow/  ge_lineage/
+└── data/                         # gitignored — dataset, Delta lake, ChromaDB (regenerated)
+```
+
 ## 🚀 How to run
 
 Prerequisites: **Docker Desktop** only — everything runs in containers.
